@@ -1,0 +1,17 @@
+[
+  {
+    "user": "admin@admin",
+    "name": "Admin",
+    "pass": "fox",
+    "admin": true,
+    "caneditroot": true,
+    "upload": true,
+    "download": true,
+    "view": true,
+    "monitoring": true,
+    "rename": true,
+    "delete": true,
+    "blacklist": [],
+    "glitcheffect": false
+  }
+]

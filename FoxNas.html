@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>FoxNas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loginScreen">
+    <div class="login-box">
+        <h2>FoxNas Zugang</h2>
+        <input type="text" id="user" placeholder="USERNAME (GAST: gast@user)">
+        <input type="password" id="pass" placeholder="PASSWORD (GAST: fox)">
+        <button class="cta" onclick="handleLogin()">Autorisieren</button>
+        <p id="loginErr" style="color: var(--accent); font-size: 0.7rem; margin-top: 15px; display: none;">Nicht Gültig!</p>
+    </div>
+</div>
+
+<header id="mainHeader" style="display:none">
+    <div style="color: var(--primary); font-weight: bold;">FOXNAS v1.0</div>
+    <div style="text-align: center; letter-spacing: 3px;" id="clock">00:00:00</div>
+    <div style="text-align: right; font-size: 0.7rem; display: flex; align-items: center; justify-content: flex-end; gap: 15px;" id="headerProfileArea">
+        <span id="autoLogoutTimer" style="color: var(--accent); font-family: 'JetBrains Mono';">01:00</span>
+        <span id="pingVal">--</span>ms
+    </div>
+</header>
+
+<div class="tabs" id="mainTabs" style="display:none">
+    <button id="tab-btn-desktop" class="active" onclick="switchTab('desktop', this)">DESKTOP</button>
+    <button id="tab-btn-explorer" onclick="switchTab('explorer-tab', this)">EXPLORER</button>
+</div>
+
+<div class="container" id="mainUI" style="display:none">
+    <div class="main-view">
+        
+        <div id="desktop" class="tab-content">
+            <div class="panel" id="monitoringPanel">
+                <div class="panel-header">MONITORING</div>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <span class="stat-label">CPU</span>
+                        <span class="stat-value" id="cpuVal">0%</span>
+                        <div class="bar-bg"><div id="cpuBar" class="bar-fill" style="width: 0%"></div></div>
+                    </div>
+                    <div class="stat-box">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span class="stat-label">RAM</span>
+                            <span id="ramDetails" style="font-size: 0.6rem; color: var(--primary);">0/0 GB</span>
+                        </div>
+                        <span class="stat-value" id="ramVal">0%</span>
+                        <div class="bar-bg"><div id="ramBar" class="bar-fill" style="width: 0%"></div></div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">NETWORK</span>
+                        <div style="font-size: 0.7rem; color: var(--primary); margin-top: 5px;">
+                            Down: <span id="netDown">0</span> KB/s<br>
+                            Up: <span id="netUp">0</span> KB/s
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">DISK I/O</span>
+                        <div style="font-size: 0.7rem; color: var(--primary); margin-top: 5px;">
+                            Read: <span id="diskRead">0</span> KB/s<br>
+                            Write: <span id="diskWrite">0</span> KB/s
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <span class="stat-label">STORAGE: <span id="diskTotal" style="color: var(--primary);">1TB</span></span>
+                        
+                        <div style="text-align: right; font-family: 'JetBrains Mono'; line-height: 1.2;">
+                            <div id="diskInfo" style="font-size: 0.7rem; color: var(--primary);">0 GB belegt</div>
+                            <div id="diskRemaining" style="font-size: 0.6rem; color: var(--primary); opacity: 0.7;">0 GB frei</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bar-bg" style="height: 8px; clear: both; margin-top: 5px;">
+                        <div id="diskBar" class="bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">USER CHANNELS</div>
+                <div id="quickPathGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;"></div>
+            </div>
+        </div>
+
+        <div id="explorer-tab" class="tab-content" style="display:none">
+            <div class="panel" style="display: flex; flex-direction: column; height: 100%;">
+                <div class="panel-header">
+                    <span>PATH: <span id="pathDisplay" style="color: var(--primary);">/</span></span>
+                    <div style="display: flex; gap: 10px; position: relative;"> 
+                        <button class="btn-action" onclick="toggleViewMenu(event)">VIEW</button>
+                        <div id="viewPanel" class="view-popup" style="display:none;">
+                            <div class="view-section">
+                                <div class="view-title">SORT</div>
+                                <button onclick="updateSort('name')">Name</button>
+                                <button onclick="updateSort('size')">Größe</button>
+                                <button onclick="updateSort('mtime')">Datum</button>
+                            </div>
+                            <div class="view-section">
+                                <div class="view-title">LAYOUT</div>
+                                <button onclick="setLayout('explorer')">Standard</button>
+                                <button onclick="setLayout('block')">Block</button>
+                            </div>
+                            <div class="view-section">
+                                <div class="view-title">SYSTEM</div>
+                                <button id="toggleGlitchBtn" onclick="toggleGlitch()">Glitch: AN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body-explorer">
+                    <div class="file-grid" id="explorer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 20px; z-index: 6000; position: relative;">
+        <div class="panel" style="flex: 1; display: flex; flex-direction: column; min-height: 0;">
+            <div class="panel-header">SYSTEM_LOG</div>
+            <div id="logConsole" style="flex: 1; overflow-y: auto;"></div>
+        </div>
+        </aside>
+</div>
+
+<div class="overlay" id="profileModal" onclick="closeProfile(event)">
+    <div class="profile-card" onclick="event.stopPropagation()">
+        <div class="profile-avatar"><img id="profileImg" src="" alt=""></div>
+        <h3 id="profileDisplayName" style="margin:0; color:var(--primary); font-family:Orbitron;">---</h3>
+        <div id="profileFullID" style="font-size:0.7rem; color:#556; margin-bottom:20px;">---</div>
+        <button class="btn-action" style="width:100%" onclick="closeProfile(null)">CLOSE</button>
+    </div>
+</div>
+
+<div id="contextMenu" class="context-menu" style="display:none;">
+    <div onclick="ctxRename()">Umbenennen</div>
+    <div onclick="ctxDelete()" style="color:var(--accent)">Löschen</div>
+    <div id="ctxDownloadContainer">Herunterladen</div>
+    <div onclick="ctxDownloadFolder()">Ordner runterladen (ZIP)</div>
+</div>
+
+<div id="selectionBox"></div>
+
+<script src="frontend/globals.js"></script>
+<script src="frontend/icons.js"></script>
+<script src="frontend/auth.js"></script>
+<script src="frontend/explorer.js"></script>
+<script src="frontend/system.js"></script>
+<script src="frontend/viewing.js"></script> 
+<script src="frontend/context.menu.rightclick.js"></script>
+<script src="frontend/contextmenu.view.js"></script>
+<script src="frontend/keybinds.js"></script>
+<script src="frontend/ping.js"></script>
+<script src="frontend/dragndrop.js"></script>
+
+</body>
+</html>

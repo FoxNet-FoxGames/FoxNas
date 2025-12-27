@@ -1,0 +1,7 @@
+{
+  "quickpaths": [
+    {"name": "Eigene Dateien", "path": "files"},
+    {"name": "Projekte", "path": "projekte/nas-v1"},
+    {"name": "Backups", "path": "backups"}
+  ]
+}
