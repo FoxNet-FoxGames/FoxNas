@@ -1,7 +1,6 @@
 /**
  * FOXNAS Video-Streaming Keybinds (Custom Player)
  */
-
 let lastEscTime = 0;
 
 window.addEventListener('keydown', (e) => {
@@ -9,19 +8,18 @@ window.addEventListener('keydown', (e) => {
     const wrapper = document.getElementById('playerWrapper');
     if (!video) return;
 
+    // Dynamische Keys aus den Settings holen
+    const customFwd = document.getElementById('kb_fwd').value;
+    const customBwd = document.getElementById('kb_bwd').value;
+
     const key = e.key.toLowerCase();
 
     // --- DOWNLOAD STREAM (STRG + S) ---
     if ((e.ctrlKey || e.metaKey) && key === 's') {
-        e.preventDefault(); // Verhindert das Speichern der Webseite
-        
-        // Wir holen den Pfad aus der URL der aktuellen Seite
+        e.preventDefault();
         const params = new URLSearchParams(window.location.search);
         const videoPath = params.get('path');
-        
         if (videoPath) {
-            console.log("SYSTEM: Trigger Download für Stream:", videoPath);
-            // Nutzt den Download-Endpunkt, damit FDM etc. anspringen
             const downloadUrl = `/api/download?path=${encodeURIComponent(videoPath)}`;
             window.location.assign(downloadUrl);
         }
@@ -58,9 +56,9 @@ window.addEventListener('keydown', (e) => {
         video.muted = !video.muted;
     }
 
-    // --- NAVIGATION ---
-    if (e.key === 'ArrowRight') { e.preventDefault(); video.currentTime += 3; }
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); video.currentTime -= 3; }
+    // --- NAVIGATION (Inkl. dynamischer Keybinds) ---
+    if (e.key === customFwd || e.key === 'ArrowRight') { e.preventDefault(); video.currentTime += 3; }
+    if (e.key === customBwd || e.key === 'ArrowLeft')  { e.preventDefault(); video.currentTime -= 3; }
     if (key === 'l') { video.currentTime += 10; }
     if (key === 'j') { video.currentTime -= 10; }
 

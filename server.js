@@ -9,7 +9,7 @@ const PORT = 80;
 
 // Globale Middlewares
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // Wichtig für Keybind-JSON-Daten
 
 app.get('/api/ping', (req, res) => {
     res.status(200).send('pong');
@@ -22,14 +22,27 @@ app.use('/user-assets', express.static(USER_DATA_DIR));
 
 const scriptsPath = path.join(__dirname, 'backend');
 
-// Dynamisches Laden der Backend-Module (inkl. auth.js)
+// Dynamisches Laden der Backend-Module
 if (fs.existsSync(scriptsPath)) {
     fs.readdirSync(scriptsPath).forEach(file => {
         if (file.endsWith('.js')) {
-            const route = require(path.join(scriptsPath, file));
-            if (typeof route === 'function') {
-                route(app);
-                console.log(`\x1b[32m[Loaded]\x1b[0m Script: ${file}`);
+            const modulePath = path.join(scriptsPath, file);
+            const routeHandler = require(modulePath);
+            
+            // Spezielle Behandlung für keybindsave.js und ähnliche API-Scripts
+            if (file === 'keybindsave.js') {
+                app.post('/api/save-keybinds', routeHandler);
+                console.log(`\x1b[32m[Loaded]\x1b[0m API Route: /api/save-keybinds (${file})`);
+            } 
+            // Standard-Laden für Module, die (app) als Funktion erwarten (wie auth.js)
+            else if (typeof routeHandler === 'function') {
+                try {
+                    routeHandler(app);
+                    console.log(`\x1b[32m[Loaded]\x1b[0m Script: ${file}`);
+                } catch (e) {
+                    // Falls es ein Export ist, der nicht (app) braucht, hier abfangen
+                    console.log(`\x1b[33m[Info]\x1b[0m Script ${file} geladen, aber nicht als (app) Funktion ausgeführt.`);
+                }
             }
         }
     });
