@@ -91,6 +91,9 @@ Passwort: fox
 * **3.13** – UI-Glitch-Personalisierung
   Ein-/Ausschaltbar pro User.
 
+* **3.14** – Permissions
+  Die Permissions funktionabel machen.
+
 ---
 
 ## 🚀 Installation
