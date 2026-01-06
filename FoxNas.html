@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>FoxNas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.png" type="image/x-icon">
+<title>FoxNas</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div id="loginScreen">
     <div class="login-box">
         <h2>FoxNas Zugang</h2>
-        <input type="text" id="user" placeholder="USERNAME (GAST: gast@user)">
-        <input type="password" id="pass" placeholder="PASSWORD (GAST: fox)">
+        <input type="text" id="user" placeholder="USERNAME">
+        <input type="password" id="pass" placeholder="PASSWORD">
         <button class="cta" onclick="handleLogin()">Autorisieren</button>
         <p id="loginErr" style="color: var(--accent); font-size: 0.7rem; margin-top: 15px; display: none;">Nicht Gültig!</p>
     </div>
@@ -45,15 +45,17 @@
                     <div class="stat-box">
                         <span class="stat-label">CPU</span>
                         <span class="stat-value" id="cpuVal">0%</span>
-                        <div class="bar-bg"><div id="cpuBar" class="bar-fill" style="width: 0%"></div></div>
+                        <div class="bar-bg"><div id="cpuBar" class="bar-fill" style="width: 0%"></div>
                     </div>
+                </div>
                     <div class="stat-box">
                         <div style="display: flex; justify-content: space-between;">
                             <span class="stat-label">RAM</span>
                             <span id="ramDetails" style="font-size: 0.6rem; color: var(--primary);">0/0 GB</span>
                         </div>
                         <span class="stat-value" id="ramVal">0%</span>
-                        <div class="bar-bg"><div id="ramBar" class="bar-fill" style="width: 0%"></div></div>
+                        <div class="bar-bg"><div id="ramBar" class="bar-fill" style="width: 0%"></div>
+                        </div>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">NETWORK</span>
@@ -81,7 +83,8 @@
                     </div>
                     
                     <div class="bar-bg" style="height: 8px; clear: both; margin-top: 5px;">
-                        <div id="diskBar" class="bar-fill" style="width: 0%"></div>
+                        <div id="diskBar" class="bar-fill" style="width: 0%">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,20 +135,11 @@
         </aside>
 </div>
 
-<div class="overlay" id="profileModal" onclick="closeProfile(event)">
-    <div class="profile-card" onclick="event.stopPropagation()">
-        <div class="profile-avatar"><img id="profileImg" src="" alt=""></div>
-        <h3 id="profileDisplayName" style="margin:0; color:var(--primary); font-family:Orbitron;">---</h3>
-        <div id="profileFullID" style="font-size:0.7rem; color:#556; margin-bottom:20px;">---</div>
-        <button class="btn-action" style="width:100%" onclick="closeProfile(null)">CLOSE</button>
-    </div>
-</div>
-
 <div id="contextMenu" class="context-menu" style="display:none;">
     <div onclick="ctxRename()">Umbenennen</div>
     <div onclick="ctxDelete()" style="color:var(--accent)">Löschen</div>
     <div id="ctxDownloadContainer">Herunterladen</div>
-    <div onclick="ctxDownloadFolder()">Ordner runterladen (ZIP)</div>
+    <div onclick="ctxDownloadFolder()">Herunterladen (ZIP)</div>
 </div>
 
 <div id="selectionBox"></div>
@@ -156,7 +150,7 @@
 <script src="frontend/explorer.js"></script>
 <script src="frontend/system.js"></script>
 <script src="frontend/viewing.js"></script> 
-<script src="frontend/context.menu.rightclick.js"></script>
+<script src="frontend/contextmenu.rightclick.js"></script>
 <script src="frontend/contextmenu.view.js"></script>
 <script src="frontend/keybinds.js"></script>
 <script src="frontend/ping.js"></script>

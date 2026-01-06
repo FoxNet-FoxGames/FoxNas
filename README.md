@@ -37,7 +37,7 @@ Dieses Projekt ist Eigentum von **FoxNet**. Alle Rechte liegen bei **FoxNet**.
 ## 🔐 Login (Standard)
 
 ```text
-User:     admin@admin
+User:     admin
 Passwort: fox
 ```
 
@@ -45,20 +45,20 @@ Passwort: fox
 
 ## 🗺 Roadmap
 
-### 📽 1.0x VideoStream Evolution
+### 📽 1. VideoStream Evolution
 
 * **1.01** – Interaktive Zeitleiste (Click-to-Seek) mit Thumbnail-Vorschau und Zeitanzeige beim Hovern.
 * **1.02** – Temporäre Einblendung der Gesamtzeit bei Zeitssprüngen (Vor/Zurück).
 
 ---
 
-### ✍️ 2.0x Editor Upgrades
+### ✍️ 2. Editor Upgrades
 
 * **2.01** – Noch keine weiteren Pläne.
 
 ---
 
-### 🖥 3.0x FoxNas Core
+### 🖥 3. FoxNas
 
 * **3.01** – View-Fix (Optimierung der Ansichtslogik).
 

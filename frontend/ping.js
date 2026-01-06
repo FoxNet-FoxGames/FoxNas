@@ -30,8 +30,7 @@ async function updatePing() {
     }
 }
 
-// Intervall starten: Alle 3 Sekunden pingen
-setInterval(updatePing, 3000);
+setInterval(updatePing, 1000);
 
 // Initialer Aufruf
 updatePing();

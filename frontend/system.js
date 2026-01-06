@@ -16,7 +16,7 @@ async function updateStats() {
         document.getElementById('ramBar').style.width = data.ram.percent + '%';
         document.getElementById('ramDetails').innerText = `${data.ram.usedGB} / ${data.ram.totalGB} GB`;
         
-        // STORAGE - Mapping auf deine neuen IDs
+        // STORAGE
         // 1. Gesamtkapazität (neben STORAGE:)
 if (data.disk) {
     const total = data.disk.totalGB || 1000; // Fallback auf 1000 falls null

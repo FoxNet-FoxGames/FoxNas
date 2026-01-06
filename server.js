@@ -69,7 +69,7 @@ function getLocalIPs() {
 }
 
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`\x1b[36mFOXNAS v1.3 ONLINE\x1b[0m`);
+    console.log(`\x1b[36mFOXNAS v1.0.1.1 ONLINE\x1b[0m`);
 
     const ips = getLocalIPs();
 

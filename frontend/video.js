@@ -65,7 +65,6 @@ async function saveSettings() {
         }
     };
 
-    // Hier schicken wir es an deinen Server-Endpunkt
     try {
         const response = await fetch('/api/save-config', {
             method: 'POST',

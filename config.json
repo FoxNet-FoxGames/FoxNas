@@ -1,6 +1,6 @@
 [
   {
-    "user": "admin@admin",
+    "user": "admin",
     "name": "Admin",
     "pass": "fox",
     "admin": true,
