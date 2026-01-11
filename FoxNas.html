@@ -128,10 +128,14 @@
     </div>
 
     <aside style="display: flex; flex-direction: column; gap: 20px; z-index: 6000; position: relative;">
-        <div class="panel" style="flex: 1; display: flex; flex-direction: column; min-height: 0;">
-            <div class="panel-header">SYSTEM_LOG</div>
-            <div id="logConsole" style="flex: 1; overflow-y: auto;"></div>
-        </div>
+<div class="panel chat-panel">
+    <div class="panel-header">CHAT</div>
+    <div id="logConsole"></div>
+    <div class="chat-input">
+        <input type="text" id="chatMessage" placeholder="Message..." autocomplete="off">
+        <button onclick="sendChatMessage()">Send</button>
+    </div>
+</div>
         </aside>
 </div>
 
@@ -155,6 +159,8 @@
 <script src="frontend/keybinds.js"></script>
 <script src="frontend/ping.js"></script>
 <script src="frontend/dragndrop.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="frontend/chat.js"></script>
 
 </body>
 </html>

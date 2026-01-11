@@ -65,8 +65,8 @@ Passwort: fox
 * **3.02** – Multi-Storage Support
   Kommunikation zwischen Hauptserver und externen Gehäusen für die Auswahl mehrerer Festplatten.
 
-* **3.07** – Live-Chat
-  Umwandlung/Erweiterung des Systemlogs in einen interaktiven Chat.
+* **3.07** – Uploading
+  Das man auch sieht was gerade hochläd, wielange noch und wanns fertig ist.
 
 * **3.08** – Admin-Konsole
   Live-Output von Datei-Aktionen (Upload/Download/IPs) und Chat-Integration in der Serverkonsole.

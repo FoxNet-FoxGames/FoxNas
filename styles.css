@@ -48,3 +48,17 @@ header { background: rgba(0, 10, 15, 0.95); padding: 10px 25px; display: grid; g
 .file-grid.drag-active {background: rgba(0, 255, 157, 0.05);outline: 2px dashed var(--primary);outline-offset: -10px;}
 .file-item.drag-target {background: rgba(0, 255, 157, 0.2) !important;border: 1px solid var(--primary);transform: scale(1.05);}
 .rename-input {background: rgba(0, 242, 255, 0.1);border: 1px solid var(--primary);color: var(--primary);font-family: 'JetBrains Mono', monospace;font-size: 0.65rem;width: 100%;box-sizing: border-box;outline: none;text-align: center;padding: 2px;}
+.chat-panel {flex: 1;display: flex;flex-direction: column;min-height: 0;padding: 0 !important;overflow: hidden}
+.chat-panel .panel-header {padding: 10px 15px;margin-bottom: 0;flex-shrink: 0}
+#logConsole {flex: 1;display: flex;flex-direction: column;gap: 8px;padding: 15px;background: rgba(0, 5, 10, 0.6) !important;border: 1px solid rgba(0, 242, 255, 0.15) !important;overflow-y: auto;scrollbar-width: thin;scrollbar-color: var(--primary) transparent}
+#logConsole div {background: rgba(0, 242, 255, 0.03);border-left: 2px solid var(--primary);padding: 6px 10px;font-size: 0.7rem;line-height: 1.4;animation: slideIn 0.2s ease-out;word-break: break-word}
+#logConsole div.system-msg {border-left-color: var(--accent);background: rgba(255, 0, 0, 0.05);color: var(--accent) !important;font-style: italic}
+.chat-input {display: flex;height: 40px;background: rgba(0, 15, 20, 0.8);border-top: 1px solid rgba(0, 242, 255, 0.2) !important;padding: 5px 10px;gap: 8px;flex-shrink: 0;box-sizing: border-box}
+#chatMessage {flex: 1;background: rgba(0, 0, 0, 0.4) !important;border: 1px solid rgba(0, 242, 255, 0.1) !important;color: var(--primary);padding: 0 12px !important;font-family: 'JetBrains Mono';font-size: 0.75rem !important;outline: none;height: 100%;box-sizing: border-box}
+#chatMessage:focus {border-color: var(--primary) !important;background: rgba(0, 242, 255, 0.05) !important}
+.chat-input button {height: 100%;background: transparent;border: 1px solid var(--primary) !important;color: var(--primary);font-family: 'Orbitron', sans-serif !important;font-size: 0.6rem;padding: 0 15px;cursor: pointer;text-transform: uppercase;letter-spacing: 1px;transition: all 0.2s ease;clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 85% 100%, 0% 100%);box-sizing: border-box;display: flex;align-items: center;justify-content: center}
+.chat-input button:hover {background: var(--primary) !important;color: #000 !important;box-shadow: 0 0 15px var(--primary)}
+#logConsole::-webkit-scrollbar { width: 4px; }
+#logConsole::-webkit-scrollbar-track { background: transparent; }
+#logConsole::-webkit-scrollbar-thumb { background: var(--primary); }
+@keyframes slideIn {from { opacity: 0; transform: translateX(-5px)} to { opacity: 1; transform: translateX(0)}}
