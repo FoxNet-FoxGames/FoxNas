@@ -15,32 +15,32 @@ async function handlePreview(name, isSelectionOnly = false, isEditMode = false) 
     if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp'].includes(ext)) {
         window.open(streamUrl, '_blank');
         return;
-    } 
+    }
 
     // 2. Medien (Video & Audio)
     if (['mp4', 'webm', 'mkv', 'mp3', 'wav', 'ogg'].includes(ext)) {
-        window.open(`videostream.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
+        window.open(`FoxPlayer.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
         return;
-    } 
-    
+    }
+
     // 3. HTML Spezial-Logik
     if (ext === 'html') {
         if (isEditMode) {
             // Mit Alt+Enter: Editor
-            window.open(`texteditor.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
+            window.open(`FoxIDE.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
         } else {
             // Nur Enter: Normales Streaming/Anzeigen
             window.open(streamUrl, '_blank');
         }
         return;
     }
-    
+
     // 4. Andere Text- & Code-Dateien (immer Editor)
     if (['txt', 'js', 'css', 'json', 'log', 'md', 'py', 'php'].includes(ext)) {
-        window.open(`texteditor.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
+        window.open(`FoxIDE.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
         return;
     }
-    
+
     // Fallback
     window.open(streamUrl, '_blank');
 }

@@ -47,7 +47,9 @@ Passwort: fox
 
 ### 📽 1. VideoStream Evolution
 
-* **1.01** – Interaktive Zeitleiste (Click-to-Seek) mit Thumbnail-Vorschau und Zeitanzeige beim Hovern.
+* **1.01** – Interaktive Zeitleiste:
+  (Click-to-Seek) mit Thumbnail-Vorschau und Zeitanzeige beim Hovern.
+
 * **1.02** – Temporäre Einblendung der Gesamtzeit bei Zeitssprüngen (Vor/Zurück).
 
 ---
@@ -60,38 +62,39 @@ Passwort: fox
 
 ### 🖥 3. FoxNas
 
-* **3.01** – View-Fix (Optimierung der Ansichtslogik).
+* **3.01** – View-Fix:
+  Optimierung der Ansichtslogik.
 
-* **3.02** – Multi-Storage Support
+* **3.02** – Multi-Storage Support:
   Kommunikation zwischen Hauptserver und externen Gehäusen für die Auswahl mehrerer Festplatten.
 
-* **3.07** – Uploading
+* **3.07** – Uploading:
   Das man auch sieht was gerade hochläd, wielange noch und wanns fertig ist.
 
-* **3.08** – Admin-Konsole
+* **3.08** – Admin-Konsole:
   Live-Output von Datei-Aktionen (Upload/Download/IPs) und Chat-Integration in der Serverkonsole.
 
-* **3.09** – Virtual Desktop
+* **3.09** – Virtual Desktop:
   Ein komplettes virtuelles OS im FoxNas-Design.
 
   * Wählbarer Hintergrund & Schnellzugriffe
   * Startmenü mit Power-Features & Abmeldung
   * Globale Suche und verschiebbare Fenster (Explorer-Fenster)
 
-* **3.11** – Deep Permissions
+* **3.11** – Deep Permissions:
   Granulare Rechte (Lesen/Schreiben/Ändern). Umstellung auf user-basierte `config.json` unter:
 
   ```text
   /users/%username%
   ```
 
-* **3.12** – Background Music
+* **3.12** – Background Music:
   Globaler Audio-Player im Footer. Automatischer Pause-Modus bei Video-Start.
 
-* **3.13** – UI-Glitch-Personalisierung
+* **3.13** – UI-Glitch-Personalisierung:
   Ein-/Ausschaltbar pro User.
 
-* **3.14** – Permissions
+* **3.14** – Permissions:
   Die Permissions funktionabel machen.
 
 ---

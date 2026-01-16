@@ -1,7 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
-// ROOT_PATH: Zeigt auf den Ordner "webdite", in dem "FoxNas" und die Dateien (wie movie.mp4) liegen
 const ROOT_PATH = path.join(__dirname, '..', '..'); 
 
 module.exports = function(app) {
