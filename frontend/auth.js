@@ -56,7 +56,7 @@ function setupUserInterface(data) {
                 <span id="autoLogoutTimer" style="color: white; font-family: 'JetBrains Mono'; font-size: 0.8rem;">01:00</span>
                 <span style="font-size: 0.5rem; color: rgba(255,255,255,0.4); letter-spacing: 1px;">DOUBLE [ESC] TO TERMINATE</span>
             </div>
-            <span onclick="openProfile()" style="cursor:pointer; color:var(--primary); margin-right:15px; font-family: 'Orbitron';">[ ${window.permissions.name} ]</span> 
+            <span style="color:var(--primary);margin-right:15px;font-family:'Orbitron'">[ ${window.permissions.name} ]</span> 
             <div style="font-size: 0.7rem;"><span id="pingVal">--</span>ms</div>`;
     }
 

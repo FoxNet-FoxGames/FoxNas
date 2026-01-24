@@ -4,7 +4,7 @@
  */
 module.exports = function(io) {
     io.on('connection', (socket) => {
-        console.log(`\x1b[35m[CHAT]\x1b[0m User verbunden: ${socket.id}`);
+        console.log(`chat: \x1b[35m[CHAT]\x1b[0m User verbunden: ${socket.id}`);
 
         // Nachricht empfangen und an alle senden
         socket.on('chatMessage', (data) => {
@@ -15,11 +15,11 @@ module.exports = function(io) {
             // Broadcast an alle verbundenen Clients
             io.emit('chatMessage', formattedMsg);
             
-            console.log(`\x1b[35m[CHAT]\x1b[0m ${data.username}: ${data.message}`);
+            console.log(`chat: \x1b[35m[CHAT]\x1b[0m ${data.username}: ${data.message}`);
         });
 
         socket.on('disconnect', () => {
-            console.log(`\x1b[35m[CHAT]\x1b[0m User getrennt: ${socket.id}`);
+            console.log(`chat: \x1b[35m[CHAT]\x1b[0m User getrennt: ${socket.id}`);
         });
     });
 };

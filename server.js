@@ -71,7 +71,7 @@ function getLocalIPs() {
 }
 
 server.listen(PORT, '0.0.0.0', () => {
-    console.log(`\x1b[36mFOXNAS v1.0.2.1 ONLINE\x1b[0m`);
+    console.log(`\x1b[36mFOXNAS v1.0.2.2 ONLINE\x1b[0m`);
     const ips = getLocalIPs();
     if (ips.length === 0) {
         console.log('Keine lokale Netzwerkadresse gefunden.');

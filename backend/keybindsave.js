@@ -28,7 +28,7 @@ module.exports = function(req, res) {
         fs.writeFileSync(userPath, JSON.stringify(userConfig, null, 4));
         res.json({ success: true });
     } catch (err) {
-        console.error("Save Error:", err);
+        console.error("keybindsave: Save Error:", err);
         res.status(500).json({ error: "Failed to save config" });
     }
 };

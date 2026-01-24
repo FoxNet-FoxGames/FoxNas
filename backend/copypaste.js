@@ -38,7 +38,7 @@ async function handlePaste(req, res) {
 
         res.json({ success: true, message: `${files.length} Objekte verschoben.` });
     } catch (err) {
-        console.error('Paste Error:', err);
+        console.error('copypaste: Paste Error:', err);
         res.status(500).json({ error: 'Verschieben fehlgeschlagen: ' + err.message });
     }
 }

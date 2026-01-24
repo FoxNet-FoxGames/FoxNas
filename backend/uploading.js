@@ -40,7 +40,7 @@ module.exports = (app) => {
         if (!req.file) {
             return res.status(400).json({ error: 'Keine Datei empfangen' });
         }
-        console.log(`[SYSTEM] Upload abgeschlossen: ${req.file.originalname} -> ${req.query.dir}`);
+        console.log(`uploading: [SYSTEM] Upload abgeschlossen: ${req.file.originalname} -> ${req.query.dir}`);
         res.json({ ok: true, filename: req.file.originalname });
     });
 };

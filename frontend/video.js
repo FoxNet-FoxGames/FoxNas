@@ -33,9 +33,15 @@ function toggleSettingsPanel() {
 // Maus verstecken
 let idleTimer;
 window.addEventListener('mousemove', () => {
-    document.getElementById('playerWrapper').classList.remove('hide-cursor');
+    const wrapper = document.getElementById('playerWrapper');
+    if (!wrapper) return;
+
+    wrapper.classList.remove('hide-cursor');
     clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => document.getElementById('playerWrapper').add('hide-cursor'), 2000);
+    
+    idleTimer = setTimeout(() => {
+        wrapper.classList.add('hide-cursor');
+    }, 2000);
 });
 
 // Progress
