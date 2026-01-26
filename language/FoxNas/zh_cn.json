@@ -1,0 +1,41 @@
+{
+  "login": {
+    "title": "FoxNas 访问",
+    "user_placeholder": "用户名",
+    "pass_placeholder": "密码",
+    "btn_auth": "授权",
+    "err_msg": "身份验证失败！"
+  },
+  "tabs": { "desktop": "桌面", "explorer": "文件管理器" },
+  "monitoring": {
+    "header": "系统监控",
+    "storage": "存储状态",
+    "belegt": "已使用",
+    "frei": "可用"
+  },
+  "explorer": {
+    "path": "路径",
+    "btn_view": "视图",
+    "sort_title": "排序",
+    "sort_name": "名称",
+    "sort_size": "大小",
+    "sort_date": "日期",
+    "layout_title": "布局",
+    "layout_std": "标准",
+    "layout_block": "块状",
+    "system_title": "系统",
+    "glitch_on": "故障效果: 开启",
+    "glitch_off": "故障效果: 关闭"
+  },
+  "chat": {
+    "header": "聊天",
+    "placeholder": "输入消息...",
+    "btn_send": "发送"
+  },
+  "context": {
+    "rename": "重命名",
+    "delete": "删除",
+    "download": "下载",
+    "download_zip": "下载 (ZIP)"
+  }
+}

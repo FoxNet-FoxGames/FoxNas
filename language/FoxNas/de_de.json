@@ -1,0 +1,44 @@
+{
+  "login": {
+    "title": "FoxNas Zugang",
+    "user_placeholder": "NUTZERNAME",
+    "pass_placeholder": "PASSWORT",
+    "btn_auth": "Autorisieren",
+    "err_msg": "Nicht Gültig!"
+  },
+  "tabs": {
+    "desktop": "DESKTOP",
+    "explorer": "EXPLORER"
+  },
+  "monitoring": {
+    "header": "MONITORING",
+    "storage": "SPEICHER",
+    "belegt": "belegt",
+    "frei": "frei"
+  },
+  "explorer": {
+    "path": "PFAD",
+    "btn_view": "ANSICHT",
+    "sort_title": "SORTIEREN",
+    "sort_name": "Name",
+    "sort_size": "Größe",
+    "sort_date": "Datum",
+    "layout_title": "LAYOUT",
+    "layout_std": "Standard",
+    "layout_block": "Block",
+    "system_title": "SYSTEM",
+    "glitch_on": "Glitch: AN",
+    "glitch_off": "Glitch: AUS"
+  },
+  "chat": {
+    "header": "CHAT",
+    "placeholder": "Nachricht...",
+    "btn_send": "Senden"
+  },
+  "context": {
+    "rename": "Umbenennen",
+    "delete": "Löschen",
+    "download": "Herunterladen",
+    "download_zip": "Herunterladen (ZIP)"
+  }
+}

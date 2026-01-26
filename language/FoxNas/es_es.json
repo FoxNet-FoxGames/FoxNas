@@ -1,0 +1,41 @@
+{
+  "login": {
+    "title": "Acceso FoxNas",
+    "user_placeholder": "USUARIO",
+    "pass_placeholder": "CONTRASEÑA",
+    "btn_auth": "Autorizar",
+    "err_msg": "¡Credenciales no válidas!"
+  },
+  "tabs": { "desktop": "ESCRITORIO", "explorer": "EXPLORADOR" },
+  "monitoring": {
+    "header": "MONITOREO",
+    "storage": "ALMACENAMIENTO",
+    "belegt": "usado",
+    "frei": "libre"
+  },
+  "explorer": {
+    "path": "RUTA",
+    "btn_view": "VISTA",
+    "sort_title": "ORDENAR",
+    "sort_name": "Nombre",
+    "sort_size": "Tamaño",
+    "sort_date": "Fecha",
+    "layout_title": "DISEÑO",
+    "layout_std": "Estándar",
+    "layout_block": "Bloque",
+    "system_title": "SISTEMA",
+    "glitch_on": "Glitch: ACTIVADO",
+    "glitch_off": "Glitch: DESACTIVADO"
+  },
+  "chat": {
+    "header": "CHAT",
+    "placeholder": "Mensaje...",
+    "btn_send": "Enviar"
+  },
+  "context": {
+    "rename": "Renombrar",
+    "delete": "Eliminar",
+    "download": "Descargar",
+    "download_zip": "Descargar (ZIP)"
+  }
+}

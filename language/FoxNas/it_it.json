@@ -1,0 +1,41 @@
+{
+  "login": {
+    "title": "Accesso FoxNas",
+    "user_placeholder": "UTENTE",
+    "pass_placeholder": "PASSWORD",
+    "btn_auth": "Autorizza",
+    "err_msg": "Credenziali non valide!"
+  },
+  "tabs": { "desktop": "DESKTOP", "explorer": "ESPLORA RISORSE" },
+  "monitoring": {
+    "header": "MONITORAGGIO",
+    "storage": "ARCHIVIAZIONE",
+    "belegt": "usato",
+    "frei": "libero"
+  },
+  "explorer": {
+    "path": "PERCORSO",
+    "btn_view": "VISTA",
+    "sort_title": "ORDINA",
+    "sort_name": "Nome",
+    "sort_size": "Dimensione",
+    "sort_date": "Data",
+    "layout_title": "LAYOUT",
+    "layout_std": "Standard",
+    "layout_block": "Blocco",
+    "system_title": "SISTEMA",
+    "glitch_on": "Glitch: ON",
+    "glitch_off": "Glitch: OFF"
+  },
+  "chat": {
+    "header": "CHAT",
+    "placeholder": "Messaggio...",
+    "btn_send": "Invia"
+  },
+  "context": {
+    "rename": "Rinomina",
+    "delete": "Elimina",
+    "download": "Scarica",
+    "download_zip": "Scarica (ZIP)"
+  }
+}

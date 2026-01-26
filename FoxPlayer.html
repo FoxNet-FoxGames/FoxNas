@@ -12,22 +12,25 @@
 <video id="mainVideo" autoplay></video>
 
 <div id="settingsPanel">
-    <h4>PLAYER_SETTINGS</h4>
+    <h4>FoxPlayer</h4>
     <div class="setting-item">
-        <span>STRETCH_VIDEO</span>
+        <span>Stretch</span>
         <input type="checkbox" id="stretchCheck" onchange="toggleStretch()">
     </div>
     <hr style="border:0; border-top:1px solid #222">
-    <h4>KEYBINDS (CLICK TO CHANGE)</h4>
-    <div class="setting-item"><span>PLAY/PAUSE</span><div class="key-input" id="kb_play" onclick="captureKey('kb_play')">k</div></div>
-    <div class="setting-item"><span>SEEK_FWD</span><div class="key-input" id="kb_fwd" onclick="captureKey('kb_fwd')">ArrowRight</div></div>
-    <div class="setting-item"><span>SEEK_BWD</span><div class="key-input" id="kb_bwd" onclick="captureKey('kb_bwd')">ArrowLeft</div></div>
-    <div class="setting-item"><span>FULLSCREEN</span><div class="key-input" id="kb_full" onclick="captureKey('kb_full')">f</div></div>
-    <div class="setting-item"><span>MUTE</span><div class="key-input" id="kb_mute" onclick="captureKey('kb_mute')">m</div></div>
+    <h4>Keybinds</h4>
+    <div class="setting-item"><span>PLAY/PAUSE</span><div class="key-input" id="kb_play1" onclick="captureKey('kb_play1')">Leertaste</div></div>
+    <div class="setting-item"><span>PLAY/PAUSE</span><div class="key-input" id="kb_play2" onclick="captureKey('kb_play2')">K</div></div>
+    <div class="setting-item"><span>FULLSCREEN</span><div class="key-input" id="kb_full" onclick="captureKey('kb_full')">F</div></div>
+    <div class="setting-item"><span>3s ></span><div class="key-input" id="kb_3" onclick="captureKey('kb_3')">PfeilRechts</div></div>
+    <div class="setting-item"><span>3s <</span><div class="key-input" id="kb_3" onclick="captureKey('kb_3')">PfeilLinks</div></div>
+    <div class="setting-item"><span>10s ></span><div class="key-input" id="kb_10" onclick="captureKey('kb_10')">L</div></div>
+    <div class="setting-item"><span>10s <</span><div class="key-input" id="kb_10" onclick="captureKey('kb_10')">J</div></div>
+    <div class="setting-item"><span>Stummschaltung</span><div class="key-input" id="kb_mute" onclick="captureKey('kb_mute')">M</div></div>
 
     <div style="display:flex; gap:5px; margin-top:10px;">
-        <button onclick="saveSettings()" style="flex:1; background:var(--primary); border:none; padding:8px; cursor:pointer; font-family:'Orbitron'; font-size:0.6rem">SAVE_CONFIG</button>
-        <button onclick="resetDefaults()" style="background:#333; color:#fff; border:none; padding:8px; cursor:pointer; font-family:'Orbitron'; font-size:0.5rem">RESET</button>
+        <button onclick="saveSettings()" style="flex:1; background:var(--primary); border:none; padding:8px; cursor:pointer; font-family:'Orbitron'; font-size:0.6rem">Speichern</button>
+        <button onclick="resetDefaults()" style="background:#333; color:#fff; border:none; padding:8px; cursor:pointer; font-family:'Orbitron'; font-size:0.5rem">Werkseinstellungen</button>
     </div>
 </div>
 
@@ -37,7 +40,7 @@
         </div>
         <div class="controls-row">
             <div class="video-info">
-                <span id="videoTitle">LOADING_STREAM...</span>
+                <span id="videoTitle">LOADING...</span>
                 <span id="videoTime">00:00 / 00:00</span>
             </div>
             <button class="btn-settings" onclick="toggleSettingsPanel()">⚙</button>

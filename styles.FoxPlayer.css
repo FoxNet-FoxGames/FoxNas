@@ -1,20 +1,20 @@
-:root {--primary: #00f2ff; --accent: #ff0055; --bg-dark: #05080a; --panel-bg: rgba(10, 15, 20, 0.95); --border: 1px solid rgba(0, 242, 255, 0.3)}
-body {margin: 0; font-family: 'JetBrains Mono', monospace; background: var(--bg-dark); color: #e0faff; overflow: hidden; height: 100vh; user-select: none}
+:root {--primary:#00f2ff;--accent:#ff0055;--bg-dark:#05080a;--panel-bg:rgba(10, 15, 20, 0.95);--border:1px solid rgba(0,242,255,0.3)}
+body {margin:0;font-family:'JetBrains Mono',monospace;background:var(--bg-dark);color:#e0faff;overflow:hidden;height:100vh;user-select:none}
 .video-wrapper {display: flex; flex-direction: column; height: 100vh; width: 100vw;justify-content: center; align-items: center;position: relative;background: #000}
-video {width: 100%; height: 100%;object-fit: contain;box-shadow: 0 0 50px rgba(0,255,157,0.1)}
-.video-ui {position: absolute; bottom: 0; left: 0; right: 0;background: linear-gradient(transparent, rgba(0,0,0,0.9));padding: 20px; transition: opacity 0.3s;z-index: 10}
-.video-wrapper.hide-cursor {cursor: none}
-.video-wrapper.hide-cursor .video-ui {opacity: 0}
-.progress-container {width: 100%; height: 6px; background: #222; cursor: pointer; margin-bottom: 10px; position: relative}
-.progress-bar {height: 100%; background: var(--primary); width: 0%; box-shadow: 0 0 10px var(--primary)}
-.controls-row {display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem}
-.video-info {display: flex; gap: 15px; color: var(--primary)}
-.btn-settings {background: transparent; border: none; color: var(--primary);cursor: pointer; font-size: 1.2rem; transition: 0.3s}
-.btn-settings:hover { color: #fff; transform: rotate(45deg); }
-#settingsPanel {position: absolute; bottom: 80px; right: 20px;background: var(--panel-bg); border: var(--border);padding: 15px; display: none; flex-direction: column; gap: 10px;min-width: 250px; z-index: 20; box-shadow: 0 0 20px #000}
-#settingsPanel h4 { margin: 0 0 10px 0; font-family: 'Orbitron'; font-size: 0.7rem; border-bottom: 1px solid var(--primary); padding-bottom: 5px; }
-.setting-item { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; }
-.setting-item input { background: #000; border: 1px solid var(--primary); color: var(--primary); padding: 2px 5px; width: 60px; font-family: inherit; }
-.key-input {background: #000;border: 1px solid var(--primary);color: var(--primary);padding: 5px;width: 100px;text-align: center;cursor: pointer;font-family: 'JetBrains Mono';font-size: 0.6rem;transition: 0.2s}
-.key-input.listening {border-color: var(--accent);color: var(--accent);box-shadow: 0 0 10px var(--accent);animation: blink 1s infinite}
-@keyframes blink {50% {opacity: 0.5}}
+video {width:100%;height:100%;object-fit:contain;box-shadow:0 0 50px rgba(0,255,157,0.1)}
+.video-ui {position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.9));padding:20px;transition:opacity 0.3s;z-index:10}
+.video-wrapper.hide-cursor {cursor:none}
+.video-wrapper.hide-cursor .video-ui {opacity:0}
+.progress-container {width:100%;height:6px;background:#222;cursor:pointer;margin-bottom:10px;position:relative}
+.progress-bar {height:100%;background:var(--primary);width:0%;box-shadow:0 0 10px var(--primary)}
+.controls-row {display:flex;justify-content:space-between;align-items:center;font-size:0.8rem}
+.video-info {display:flex;gap:15px;color:var(--primary)}
+.btn-settings {background:transparent;border:none;color:var(--primary);cursor:pointer;font-size:1.2rem;transition:0.3s}
+.btn-settings:hover {color:#fff;transform:rotate(45deg)}
+#settingsPanel {position:absolute;bottom:80px;right:20px;background:var(--panel-bg);border:var(--border);padding:15px;display:none;flex-direction:column;gap:10px;min-width:250px;z-index:20;box-shadow:0 0 20px#000}
+#settingsPanel h4 {margin:0 0 10px 0;font-family:'Orbitron';font-size:0.7rem;border-bottom:1px solid var(--primary);padding-bottom:5px}
+.setting-item {display:flex;justify-content:space-between;align-items:center;font-size:0.7rem}
+.setting-item input {background:#000;border:1px solid var(--primary);color:var(--primary);padding:2px 5px;width:60px;font-family:inherit}
+.key-input {background:#000;border:1px solid var(--primary);color:var(--primary);padding:5px;width:100px;text-align:center;cursor:pointer;font-family:'JetBrains Mono';font-size:0.6rem;transition:0.2s}
+.key-input.listening {border-color:var(--accent);color:var(--accent);box-shadow:0 0 10px var(--accent);animation:blink 1s infinite}
+@keyframes blink {50%{opacity:0.5}}

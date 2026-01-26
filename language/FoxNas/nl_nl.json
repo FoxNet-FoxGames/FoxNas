@@ -1,0 +1,41 @@
+{
+  "login": {
+    "title": "FoxNas Toegang",
+    "user_placeholder": "GEBRUIKERSNAAM",
+    "pass_placeholder": "WACHTWOORD",
+    "btn_auth": "Autoriseren",
+    "err_msg": "Ongeldige gegevens!"
+  },
+  "tabs": { "desktop": "DESKTOP", "explorer": "VERKENNER" },
+  "monitoring": {
+    "header": "MONITORING",
+    "storage": "OPSLAG",
+    "belegt": "gebruikt",
+    "frei": "vrij"
+  },
+  "explorer": {
+    "path": "PAD",
+    "btn_view": "WEERGAVE",
+    "sort_title": "SORTEREN",
+    "sort_name": "Naam",
+    "sort_size": "Grootte",
+    "sort_date": "Datum",
+    "layout_title": "LAYOUT",
+    "layout_std": "Standaard",
+    "layout_block": "Blok",
+    "system_title": "SYSTEEM",
+    "glitch_on": "Glitch: AAN",
+    "glitch_off": "Glitch: UIT"
+  },
+  "chat": {
+    "header": "CHAT",
+    "placeholder": "Bericht...",
+    "btn_send": "Verzenden"
+  },
+  "context": {
+    "rename": "Hernoemen",
+    "delete": "Verwijderen",
+    "download": "Downloaden",
+    "download_zip": "Downloaden (ZIP)"
+  }
+}

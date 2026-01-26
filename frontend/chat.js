@@ -1,8 +1,6 @@
 /**
- * FOXNAS Live-Chat Module (3.07)
+ * FOXNAS Live-Chat Module (3.07) - Multilanguage Fixed
  */
-
-// Socket.io Client laden (Das Skript wird automatisch vom Server bereitgestellt)
 const socket = io();
 
 // Nachrichten empfangen
@@ -14,7 +12,6 @@ socket.on('chatMessage', (msg) => {
     entry.style.padding = '2px 0';
     entry.style.borderBottom = '1px solid rgba(0, 242, 255, 0.05)';
     
-    // System-Nachrichten farblich abheben
     if (msg.includes('System:')) {
         entry.style.color = 'var(--accent)';
     } else {
@@ -26,23 +23,45 @@ socket.on('chatMessage', (msg) => {
     log.scrollTop = log.scrollHeight;
 });
 
-// Nachricht senden
 function sendChatMessage() {
     const input = document.getElementById('chatMessage');
     const message = input.value.trim();
     if (!message) return;
 
-    // Nutze den eingeloggten User (aus deinem Auth-System)
-    // Falls window.permissions noch nicht existiert, nutzen wir einen Platzhalter
     const username = (window.permissions && window.permissions.name) ? window.permissions.name : "Admin";
-
     socket.emit('chatMessage', { username, message });
     input.value = '';
 }
 
-// Event Listener für Input
+// Zentrale Funktion zum Texte austauschen
+function updateChatUI() {
+    console.log("CHAT: Update UI mit Sprache...");
+    const chatInput = document.getElementById('chatMessage');
+    const sendBtn = document.querySelector('.chat-input button');
+    const chatHeader = document.querySelector('.chat-panel .panel-header');
+
+    if (LanguageEngine.dict && LanguageEngine.dict.chat) {
+        const lang = LanguageEngine.dict.chat;
+        if (chatInput) chatInput.placeholder = lang.placeholder;
+        if (sendBtn) sendBtn.innerText = lang.btn_send;
+        if (chatHeader) chatHeader.innerText = lang.header;
+    }
+}
+
+// 1. Wenn die Sprache bereit ist -> Update
+document.addEventListener('languageReady', () => {
+    updateChatUI();
+});
+
+// 2. Wenn das DOM geladen ist -> Event Listener binden & Initial-Check
 document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chatMessage');
+    
+    // Falls LanguageEngine schon fertig war, bevor der Chat geladen wurde:
+    if (LanguageEngine.dict && LanguageEngine.dict.chat) {
+        updateChatUI();
+    }
+
     if(chatInput) {
         chatInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {

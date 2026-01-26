@@ -1,0 +1,89 @@
+    const editor = document.getElementById('editor');
+    const highlighting = document.getElementById('highlighting');
+    const scrollContainer = document.getElementById('scrollContainer');
+    const lineNumbers = document.getElementById('lineNumbers');
+    const params = new URLSearchParams(window.location.search);
+    const filePath = params.get('path');
+    let currentExt = 'txt';
+
+    function syncSize() {
+        const lines = editor.value.split('\n');
+        const longestLine = lines.reduce((max, line) => Math.max(max, line.length), 0);
+        editor.style.width = (longestLine * 8.5 + 150) + 'px';
+        editor.style.height = (lines.length * 21 + 150) + 'px';
+        highlighting.style.width = editor.style.width;
+        highlighting.style.height = editor.style.height;
+    }
+
+    function updateView() {
+        const text = editor.value;
+        syncSize();
+        
+        let code = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        
+        // Syntax Highlighting
+        if (['js', 'json'].includes(currentExt)) {
+            code = code.replace(/(['"`])(.*?)\1/g, '<span class="hl-string">$&</span>')
+                       .replace(/\b(const|let|var|function|return|if|else|for|while|await|async|class|true|false|null)\b/g, '<span class="hl-keyword">$&</span>')
+                       .replace(/(\w+)(?=\()/g, '<span class="hl-func">$1</span>')
+                       .replace(/(\/\/.*)/g, '<span class="hl-comment">$1</span>');
+        } else if (currentExt === 'html') {
+            code = code.replace(/(&lt;\/?[a-z0-9]+)(.*?)(\&gt;)/gi, (m, t, a, e) => {
+                const ca = a.replace(/([a-z-]+)=/gi, '<span class="hl-attr">$1</span>=');
+                return `<span class="hl-tag">${t}</span>${ca}<span class="hl-tag">${e}</span>`;
+            });
+        }
+
+        // --- HEX CODE LOGIK ---
+        // Färbt den Text in der Box und gibt ihm einen Glow in seiner eigenen Farbe
+        code = code.replace(/(#[0-9a-fA-F]{3,8})\b/g, (match) => {
+            return `<span class="color-preview" style="color: ${match}; text-shadow: 0 0 4px ${match};">${match}</span>`;
+        });
+
+        highlighting.innerHTML = code + (text.endsWith('\n') ? ' ' : '');
+        lineNumbers.innerHTML = text.split('\n').map((_, i) => i + 1).join('<br>');
+    }
+
+    editor.addEventListener('input', updateView);
+    scrollContainer.addEventListener('scroll', () => {
+        lineNumbers.scrollTop = scrollContainer.scrollTop;
+    });
+
+    if (filePath) {
+        document.getElementById('fileNameDisplay').innerText = filePath.split('\\').pop().toUpperCase();
+        currentExt = filePath.split('.').pop().toLowerCase();
+        fetch(`/api/stream?path=${encodeURIComponent(filePath)}`)
+            .then(r => r.text()).then(d => { editor.value = d; updateView(); });
+    }
+
+    async function saveFile() {
+        const res = await fetch('/api/save-text', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ filePath, content: editor.value })
+        });
+        if(res.ok) { 
+            document.getElementById('statusMsg').innerText = "SAVED";
+            setTimeout(() => document.getElementById('statusMsg').innerText = "", 2000);
+        }
+    }
+
+    window.addEventListener('keydown', e => {
+        if(e.ctrlKey && e.key === 's') { e.preventDefault(); saveFile(); }
+        if(e.key === 'Tab') {
+            e.preventDefault();
+            const s = editor.selectionStart;
+            editor.value = editor.value.substring(0, s) + "\t" + editor.value.substring(editor.selectionEnd);
+            editor.selectionStart = editor.selectionEnd = s + 1;
+            updateView();
+        }
+    });
+
+    function togglePreview() {
+        const p = document.getElementById('previewPane');
+        p.style.display = p.style.display === 'flex' ? 'none' : 'flex';
+        if(p.style.display === 'flex') {
+            const doc = document.getElementById('previewFrame').contentDocument;
+            doc.open(); doc.write(editor.value); doc.close();
+        }
+    }

@@ -71,6 +71,9 @@ Passwort: fox
 * **3.07** – Uploading:
   Das man auch sieht was gerade hochläd, wielange noch und wanns fertig ist.
 
+* **3.12** – Sounds:
+  Copy, Paste und allgemein Dateimanagment sollten ein Sound haben das sie erflogreich waren.
+
 * **3.08** – Admin-Konsole:
   Live-Output von Datei-Aktionen (Upload/Download/IPs) und Chat-Integration in der Serverkonsole.
 

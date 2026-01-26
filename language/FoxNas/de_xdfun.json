@@ -1,0 +1,47 @@
+{
+  "login": {
+    "title": "FurryNas Konvention",
+    "user_placeholder": "Sozialsicherheitsnummer?",
+    "pass_placeholder": "Geheimwort?",
+    "btn_auth": "gimme access",
+    "err_msg": "Net gültig sie Hund"
+  },
+  "header": {
+    "version": "FurryNas v1.0.3"
+  },
+  "tabs": {
+    "desktop": "SPIELWIESE",
+    "explorer": "WÜHLKISTE"
+  },
+  "monitoring": {
+    "header": "WAS LOS HIER?",
+    "storage": "PLATTEN-SALAT",
+    "belegt": "vollgemüllt",
+    "frei": "noch Platz für Pornos"
+  },
+  "explorer": {
+    "path": "WO BIN ICH?",
+    "btn_view": "GLUBSCHEN",
+    "sort_title": "DURCHWURSTELN",
+    "sort_name": "Buchstabensuppe",
+    "sort_size": "Fette Brocken",
+    "sort_date": "Gammel-Faktor",
+    "layout_title": "AUSSEHEN",
+    "layout_std": "Langweilig",
+    "layout_block": "Legosteine",
+    "system_title": "MATRIX",
+    "glitch_on": "Trip: AN",
+    "glitch_off": "Trip: AUS"
+  },
+  "chat": {
+    "header": "LABERECKE",
+    "placeholder": "Schreib was Dummes...",
+    "btn_send": "AB DIE POST"
+  },
+  "context": {
+    "rename": "Tauf das Ding um",
+    "delete": "Ab in den Schredder",
+    "download": "Krall ich mir",
+    "download_zip": "Einpacken & Mitnehmen"
+  }
+}

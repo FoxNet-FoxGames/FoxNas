@@ -1,0 +1,44 @@
+{
+  "login": {
+    "title": "FoxNas Access",
+    "user_placeholder": "USERNAME",
+    "pass_placeholder": "PASSWORD",
+    "btn_auth": "Authorize",
+    "err_msg": "Invalid Credentials!"
+  },
+  "tabs": {
+    "desktop": "DESKTOP",
+    "explorer": "EXPLORER"
+  },
+  "monitoring": {
+    "header": "MONITORING",
+    "storage": "STORAGE",
+    "belegt": "used",
+    "frei": "free"
+  },
+  "explorer": {
+    "path": "PATH",
+    "btn_view": "VIEW",
+    "sort_title": "SORT",
+    "sort_name": "Name",
+    "sort_size": "Size",
+    "sort_date": "Date",
+    "layout_title": "LAYOUT",
+    "layout_std": "Standard",
+    "layout_block": "Block",
+    "system_title": "SYSTEM",
+    "glitch_on": "Glitch: ON",
+    "glitch_off": "Glitch: OFF"
+  },
+  "chat": {
+    "header": "CHAT",
+    "placeholder": "Message...",
+    "btn_send": "Send"
+  },
+  "context": {
+    "rename": "Rename",
+    "delete": "Delete",
+    "download": "Download",
+    "download_zip": "Download (ZIP)"
+  }
+}

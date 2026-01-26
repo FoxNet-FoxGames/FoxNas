@@ -1,0 +1,41 @@
+{
+  "login": {
+    "title": "FoxNas アクセス",
+    "user_placeholder": "ユーザー名",
+    "pass_placeholder": "パスワード",
+    "btn_auth": "認証する",
+    "err_msg": "認証に失敗しました！"
+  },
+  "tabs": { "desktop": "デスクトップ", "explorer": "エクスプローラー" },
+  "monitoring": {
+    "header": "モニタリング",
+    "storage": "ストレージ",
+    "belegt": "使用中",
+    "frei": "空き"
+  },
+  "explorer": {
+    "path": "パス",
+    "btn_view": "表示設定",
+    "sort_title": "並び替え",
+    "sort_name": "名前",
+    "sort_size": "サイズ",
+    "sort_date": "日付",
+    "layout_title": "レイアウト",
+    "layout_std": "標準",
+    "layout_block": "ブロック",
+    "system_title": "システム",
+    "glitch_on": "グリッチ: ON",
+    "glitch_off": "グリッチ: OFF"
+  },
+  "chat": {
+    "header": "チャット",
+    "placeholder": "メッセージを入力...",
+    "btn_send": "送信"
+  },
+  "context": {
+    "rename": "名前の変更",
+    "delete": "削除",
+    "download": "ダウンロード",
+    "download_zip": "ダウンロード (ZIP)"
+  }
+}

@@ -1,108 +1,101 @@
 /**
- * FOXNAS View & Preferences Module
- * Steuerung für das VIEW-Menü und User-Einstellungen
+ * FOXNAS View & Preferences Module - Multilanguage Update
  */
 
-/**
- * Öffnet/Schließt das View-Popup
- */
 function toggleViewMenu(e) {
     if (e) e.stopPropagation(); 
     const panel = document.getElementById('viewPanel');
     if (!panel) return;
-    
     const isVisible = panel.style.display === 'flex';
     panel.style.display = isVisible ? 'none' : 'flex';
 }
 
 /**
- * Globaler Click-Listener zum Schließen des Menüs bei Klicks außerhalb
- */
-window.addEventListener('click', (e) => {
-    const panel = document.getElementById('viewPanel');
-    const viewBtn = document.querySelector('button[onclick*="toggleViewMenu"]');
-    
-    if (panel && panel.style.display === 'flex') {
-        // Schließen, wenn der Klick weder das Panel noch den Button getroffen hat
-        if (!panel.contains(e.target) && e.target !== viewBtn) {
-            panel.style.display = 'none';
-        }
-    }
-});
-
-/**
- * Schaltet den Glitch-Effekt um und speichert die Wahl im Account
+ * Schaltet den Glitch-Effekt um
  */
 async function toggleGlitch() {
-    // 1. UI sofort umschalten (Visual Feedback)
     const isNowDisabled = document.body.classList.toggle('no-glitch');
-    const newState = !isNowDisabled; // true = Effekt AN, false = Effekt AUS
+    const newState = !isNowDisabled; 
     
-    // 2. Button Text aktualisieren
     updateGlitchButtonUI(newState);
 
-    // 3. Im Backend permanent speichern
     try {
-        const response = await fetch('/api/update-user-config', {
+        await fetch('/api/update-user-config', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                updates: { glitcheffect: newState } 
-            })
+            body: JSON.stringify({ updates: { glitcheffect: newState } })
         });
-        
-        const data = await response.json();
-        if (data.success) {
-            console.log(`SYSTEM: Glitch-Präferenz (${newState}) permanent gespeichert.`);
-            // Lokale Session-Daten im Frontend synchronisieren
-            if (window.currentUser && window.currentUser.config) {
-                window.currentUser.config.glitcheffect = newState;
-            }
+        if (window.currentUser && window.currentUser.config) {
+            window.currentUser.config.glitcheffect = newState;
         }
     } catch (err) {
-        console.error("SYSTEM ERROR: Konnte Glitch-Einstellung nicht speichern", err);
+        console.error("SYSTEM ERROR: Save failed", err);
     }
 }
 
 /**
- * Aktualisiert nur den Text des Buttons im Menü
+ * Zieht die Texte für den Glitch-Button aus der JSON
  */
 function updateGlitchButtonUI(isActive) {
     const btn = document.getElementById('toggleGlitchBtn');
-    if (btn) {
-        btn.innerText = `Glitch: ${isActive ? 'AN' : 'AUS'}`;
-        // Optional: Farbe des Buttons ändern
+    const lang = LanguageEngine.dict.explorer; // Zugriff auf explorer.glitch_on / glitch_off
+
+    if (btn && lang) {
+        btn.innerText = isActive ? lang.glitch_on : lang.glitch_off;
         btn.style.color = isActive ? 'var(--primary)' : 'var(--accent)';
     }
 }
 
 /**
- * Wendet die geladenen User-Einstellungen an (wird nach Login/Check-Auth aufgerufen)
- * @param {Object} config - Das Config-Objekt des Users aus der config.json
+ * Wendet die gesamten View-Übersetzungen an
  */
-function applyPreferences(config) {
-    if (!config) return;
+function applyViewLanguage() {
+    const lang = LanguageEngine.dict.explorer;
+    if (!lang) return;
 
-    // Glitch-Effekt anwenden
-    // Wenn glitcheffect explizit false ist, Effekt ausschalten
-    if (config.glitcheffect === false) {
-        document.body.classList.add('no-glitch');
-        updateGlitchButtonUI(false);
-    } else {
-        document.body.classList.remove('no-glitch');
-        updateGlitchButtonUI(true);
+    // Alle View-Sektions-Titel übersetzen
+    const titles = document.querySelectorAll('.view-section .view-title');
+    if (titles.length >= 3) {
+        titles[0].innerText = lang.sort_title;
+        titles[1].innerText = lang.layout_title;
+        titles[2].innerText = lang.system_title;
     }
 
-    console.log("SYSTEM: User-Präferenzen angewendet.");
+    // Buttons im View-Menü
+    const viewButtons = document.querySelectorAll('.view-section button');
+    // Die Reihenfolge muss deiner HTML entsprechen:
+    // 0:Name, 1:Größe, 2:Datum, 3:Standard, 4:Block
+    if (viewButtons.length >= 5) {
+        viewButtons[0].innerText = lang.sort_name;
+        viewButtons[1].innerText = lang.sort_size;
+        viewButtons[2].innerText = lang.sort_date;
+        viewButtons[3].innerText = lang.layout_std;
+        viewButtons[4].innerText = lang.layout_block;
+    }
 }
 
-// Falls das Skript neu geladen wird und bereits User-Daten da sind:
-if (window.currentUser && window.currentUser.config) {
-    applyPreferences(window.currentUser.config);
+function applyPreferences(config) {
+    if (!config) return;
+    const isActive = config.glitcheffect !== false;
+    
+    if (!isActive) document.body.classList.add('no-glitch');
+    else document.body.classList.remove('no-glitch');
+    
+    applyViewLanguage(); // Statische Texte laden
+    updateGlitchButtonUI(isActive); // Button-Status laden
 }
 
-    // Initialisierung nach dem Laden
-    window.onload = () => {
-        if(typeof initKeybinds === 'function') initKeybinds();
-        if(typeof initContextMenu === 'function') initContextMenu();
-    };
+window.onload = () => {
+    if(typeof initKeybinds === 'function') initKeybinds();
+    if(typeof initContextMenu === 'function') initContextMenu();
+    applyViewLanguage(); 
+};
+document.addEventListener('languageReady', () => {
+    console.log("VIEW: Sprache empfangen, beschrifte Menü...");
+    applyViewLanguage(); 
+    
+    // Falls ein User eingeloggt ist, den Button-Status korrekt beschriften
+    if (window.currentUser && window.currentUser.config) {
+        updateGlitchButtonUI(window.currentUser.config.glitcheffect !== false);
+    }
+});

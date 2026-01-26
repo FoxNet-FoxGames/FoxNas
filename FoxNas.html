@@ -12,17 +12,32 @@
 <body>
 
 <div id="loginScreen">
-    <div class="login-box">
+<div class="login-box">
+    <div class="language-wrapper">
+        <button class="btn-language" onclick="toggleLangMenu()">⚙</button>
+        <div id="langSelectorContainer" class="lang-selector-popup" style="display: none;">
+            <select id="langPicker" onchange="LanguageEngine.setLanguage(this.value)" size="8">
+                <option value="de_de">DE - Deutsch</option>
+                <option value="de_xdfun">DE - XD FUN</option>
+                <option value="en_en">EN - English</option>
+                <option value="es_es">ES - Español</option>
+                <option value="it_it">IT - Italiano</option>
+                <option value="nl_nl">NL - Nederlands</option>
+                <option value="zh_cn">ZH - 中文</option>
+                <option value="ja_jp">JA - 日本語</option>
+            </select>
+        </div>
+    </div>
         <h2>FoxNas Zugang</h2>
         <input type="text" id="user" placeholder="USERNAME">
-        <input type="password" id="pass" placeholder="PASSWORD">
+        <input type="password" id="pass" placeholder="PASSWORT">
         <button class="cta" onclick="handleLogin()">Autorisieren</button>
         <p id="loginErr" style="color: var(--accent); font-size: 0.7rem; margin-top: 15px; display: none;">Nicht Gültig!</p>
     </div>
 </div>
 
 <header id="mainHeader" style="display:none">
-    <div style="color: var(--primary); font-weight: bold;">FOXNAS v1.0.2.2</div>
+    <div style="color: var(--primary); font-weight: bold;">FOXNAS v1.0.3</div>
     <div style="text-align: center; letter-spacing: 3px;" id="clock">00:00:00</div>
     <div style="text-align: right; font-size: 0.7rem; display: flex; align-items: center; justify-content: flex-end; gap: 15px;" id="headerProfileArea">
         <span id="autoLogoutTimer" style="color: var(--accent); font-family: 'JetBrains Mono';">01:00</span>
@@ -151,6 +166,7 @@
 <script src="frontend/globals.js"></script>
 <script src="frontend/icons.js"></script>
 <script src="frontend/auth.js"></script>
+<script src="frontend/language.js"></script>
 <script src="frontend/explorer.js"></script>
 <script src="frontend/system.js"></script>
 <script src="frontend/viewing.js"></script> 
