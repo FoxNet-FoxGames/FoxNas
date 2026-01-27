@@ -48,5 +48,4 @@ module.exports = (app) => {
             res.send(zipBuffer);
         } catch (e) { res.status(500).send("Fehler beim Zippen: " + e.message); }
     });
-
 };

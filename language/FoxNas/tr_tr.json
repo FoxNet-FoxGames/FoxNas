@@ -1,0 +1,44 @@
+{
+  "login": {
+    "title": "FoxNas Erişimi",
+    "user_placeholder": "KULLANICI ADI",
+    "pass_placeholder": "ŞİFRE",
+    "btn_auth": "Yetkilendir",
+    "err_msg": "Geçersiz!"
+  },
+  "tabs": {
+    "desktop": "MASAÜSTÜ",
+    "explorer": "GEZGİN"
+  },
+  "monitoring": {
+    "header": "İZLEME",
+    "storage": "DEPOLAMA",
+    "belegt": "dolu",
+    "frei": "boş"
+  },
+  "explorer": {
+    "path": "YOL",
+    "btn_view": "GÖRÜNÜM",
+    "sort_title": "SIRALAMA",
+    "sort_name": "Ad",
+    "sort_size": "Boyut",
+    "sort_date": "Tarih",
+    "layout_title": "DÜZEN",
+    "layout_std": "Standart",
+    "layout_block": "Blok",
+    "system_title": "SİSTEM",
+    "glitch_on": "Glitch: AÇIK",
+    "glitch_off": "Glitch: KAPALI"
+  },
+  "chat": {
+    "header": "SOHBET",
+    "placeholder": "Mesaj...",
+    "btn_send": "Gönder"
+  },
+  "context": {
+    "rename": "Yeniden adlandır",
+    "delete": "Sil",
+    "download": "İndir",
+    "download_zip": "İndir (ZIP)"
+  }
+}

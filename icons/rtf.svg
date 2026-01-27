@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="fox_rtf_neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff" />
+      <stop offset="100%" stop-color="#ff00ff" />
+    </linearGradient>
+    <filter id="glow_rtf">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="12" y="8" width="40" height="48" rx="3" fill="#0a0a0a" stroke="#222" stroke-width="1"/>
+
+  <g stroke="#00ffff" stroke-width="2" stroke-linecap="round" opacity="0.3">
+    <line x1="20" y1="20" x2="44" y2="20" />
+    <line x1="20" y1="28" x2="44" y2="28" />
+    <line x1="20" y1="36" x2="36" y2="36" />
+  </g>
+
+  <g filter="url(#glow_rtf)">
+    <path d="M42,32 L34,40 M32,38 L30,44 L36,44 L34,40" 
+          fill="none" 
+          stroke="url(#fox_rtf_neon)" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+    <rect x="30" y="44" width="6" height="4" fill="url(#fox_rtf_neon)" />
+  </g>
+
+  <rect x="12" y="8" width="40" height="48" rx="3" fill="none" stroke="url(#fox_rtf_neon)" stroke-width="2" opacity="0.8"/>
+</svg>

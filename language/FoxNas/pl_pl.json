@@ -1,0 +1,44 @@
+{
+  "login": {
+    "title": "Dostęp FoxNas",
+    "user_placeholder": "NAZWA UŻYTKOWNIKA",
+    "pass_placeholder": "HASŁO",
+    "btn_auth": "Autoryzuj",
+    "err_msg": "Nieprawidłowe!"
+  },
+  "tabs": {
+    "desktop": "PULPIT",
+    "explorer": "EKSPLORATOR"
+  },
+  "monitoring": {
+    "header": "MONITORING",
+    "storage": "PAMIĘĆ",
+    "belegt": "zajęte",
+    "frei": "wolne"
+  },
+  "explorer": {
+    "path": "ŚCIEŻKA",
+    "btn_view": "WIDOK",
+    "sort_title": "SORTOWANIE",
+    "sort_name": "Nazwa",
+    "sort_size": "Rozmiar",
+    "sort_date": "Data",
+    "layout_title": "UKŁAD",
+    "layout_std": "Standardowy",
+    "layout_block": "Blok",
+    "system_title": "SYSTEM",
+    "glitch_on": "Glitch: WŁ",
+    "glitch_off": "Glitch: WYŁ"
+  },
+  "chat": {
+    "header": "CZAT",
+    "placeholder": "Wiadomość...",
+    "btn_send": "Wyślij"
+  },
+  "context": {
+    "rename": "Zmień nazwę",
+    "delete": "Usuń",
+    "download": "Pobierz",
+    "download_zip": "Pobierz (ZIP)"
+  }
+}

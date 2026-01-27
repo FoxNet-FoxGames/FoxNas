@@ -1,0 +1,44 @@
+{
+  "login": {
+    "title": "ДОСТУП FOXNAS",
+    "user_placeholder": "ИМЯ ПОЛЬЗОВАТЕЛЯ",
+    "pass_placeholder": "ПАРОЛЬ",
+    "btn_auth": "АВТОРИЗОВАТЬСЯ",
+    "err_msg": "НЕДЕЙСТВИТЕЛЬНО!"
+  },
+  "tabs": {
+    "desktop": "РАБОЧИЙ СТОЛ",
+    "explorer": "ПРОВОДНИК"
+  },
+  "monitoring": {
+    "header": "МОНИТОРИНГ",
+    "storage": "ХРАНИЛИЩЕ",
+    "belegt": "ЗАНЯТО",
+    "frei": "СВОБОДНО"
+  },
+  "explorer": {
+    "path": "ПУТЬ",
+    "btn_view": "ПРОСМОТР",
+    "sort_title": "СОРТИРОВКА",
+    "sort_name": "ИМЯ",
+    "sort_size": "РАЗМЕР",
+    "sort_date": "ДАТА",
+    "layout_title": "МАКЕТ",
+    "layout_std": "СТАНДАРТ",
+    "layout_block": "БЛОК",
+    "system_title": "СИСТЕМА",
+    "glitch_on": "ГЛИТЧ: ВКЛ",
+    "glitch_off": "ГЛИТЧ: ВЫКЛ"
+  },
+  "chat": {
+    "header": "ЧАТ",
+    "placeholder": "Сообщение...",
+    "btn_send": "Отправить"
+  },
+  "context": {
+    "rename": "Переименовать",
+    "delete": "Удалить",
+    "download": "Скачать",
+    "download_zip": "Скачать (ZIP)"
+  }
+}

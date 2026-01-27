@@ -40,8 +40,9 @@ function createFileItem(item, index) {
     div.dataset.index = index;
     div.dataset.isDir = item.isDirectory;
     
-    div.innerHTML = `
-        <img src="${getIcon(item)}" onerror="this.src='/icons/file.png'">
+div.innerHTML = `
+        <img src="${getIcon(item, currentDir)}" 
+             onerror="this.onerror=null; this.src='/api/icon?name=file&isDirectory=false'">
         <span class="file-name">${item.name}</span>
     `;
     
@@ -50,7 +51,6 @@ function createFileItem(item, index) {
         selectFile(item.name, index, e); 
     };
 
-    // ÄNDERUNG HIER:
     div.ondblclick = (e) => {
         e.stopPropagation();
         if (item.isDirectory) {

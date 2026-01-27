@@ -1,0 +1,44 @@
+{
+  "login": {
+    "title": "FoxNas 접근",
+    "user_placeholder": "사용자 이름",
+    "pass_placeholder": "비밀번호",
+    "btn_auth": "인증",
+    "err_msg": "유효하지 않음!"
+  },
+  "tabs": {
+    "desktop": "데스크톱",
+    "explorer": "탐색기"
+  },
+  "monitoring": {
+    "header": "모니터링",
+    "storage": "저장소",
+    "belegt": "사용 중",
+    "frei": "여유 공간"
+  },
+  "explorer": {
+    "path": "경로",
+    "btn_view": "보기",
+    "sort_title": "정렬",
+    "sort_name": "이름",
+    "sort_size": "크기",
+    "sort_date": "날짜",
+    "layout_title": "레이아웃",
+    "layout_std": "표준",
+    "layout_block": "블록",
+    "system_title": "시스템",
+    "glitch_on": "글리치: 켜짐",
+    "glitch_off": "글리치: 꺼짐"
+  },
+  "chat": {
+    "header": "채팅",
+    "placeholder": "메시지...",
+    "btn_send": "보내기"
+  },
+  "context": {
+    "rename": "이름 변경",
+    "delete": "삭제",
+    "download": "다운로드",
+    "download_zip": "다운로드 (ZIP)"
+  }
+}

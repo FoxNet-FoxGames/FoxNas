@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="fox_url_neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff" /><stop offset="100%" stop-color="#ff00ff" />
+    </linearGradient>
+    <filter id="glow_url"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="12" y="8" width="40" height="48" rx="3" fill="#0a0a0a" stroke="#222" stroke-width="1"/>
+  <g filter="url(#glow_url)" fill="none" stroke="url(#fox_url_neon)" stroke-width="1.5">
+    <circle cx="32" cy="32" r="12" />
+    <path d="M20,32 L44,32 M32,20 L32,44" opacity="0.5"/>
+    <ellipse cx="32" cy="32" rx="5" ry="12" />
+  </g>
+  <path d="M40,15 L52,15 L52,25" fill="none" stroke="#ff00ff" stroke-width="3" />
+</svg>

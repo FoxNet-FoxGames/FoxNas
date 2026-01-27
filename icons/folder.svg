@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="foxnas_main_neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff" />
+      <stop offset="100%" stop-color="#ff00ff" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path d="M6,18 L24,18 L28,12 L58,12 L58,52 L6,52 Z" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
+
+  <g stroke="url(#foxnas_main_neon)" stroke-width="1.5" fill="none" opacity="0.6">
+    <line x1="12" y1="28" x2="52" y2="28" stroke-dasharray="4,2" />
+    <line x1="12" y1="36" x2="40" y2="36" stroke-dasharray="10,3" />
+    <line x1="12" y1="44" x2="48" y2="44" stroke-dasharray="2,2" />
+  </g>
+
+  <path d="M6,22 L24,22 L29,14 L58,14 L58,54 L6,54 Z" 
+        fill="none" 
+        stroke="url(#foxnas_main_neon)" 
+        stroke-width="2.5" 
+        filter="url(#glow)" />
+
+  <path d="M6,35 L6,54 L20,54" fill="none" stroke="#00ffff" stroke-width="3" />
+  <path d="M44,14 L58,14 L58,30" fill="none" stroke="#ff00ff" stroke-width="3" />
+
+  <rect x="10" y="26" width="6" height="2" fill="#00ffff" />
+</svg>

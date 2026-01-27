@@ -1,0 +1,44 @@
+{
+  "login": {
+    "title": "Přístup FoxNas",
+    "user_placeholder": "UŽIVATELSKÉ JMÉNO",
+    "pass_placeholder": "HESLO",
+    "btn_auth": "Autorizovat",
+    "err_msg": "Neplatné!"
+  },
+  "tabs": {
+    "desktop": "PLOCHA",
+    "explorer": "PRŮZKUMNÍK"
+  },
+  "monitoring": {
+    "header": "MONITOROVÁNÍ",
+    "storage": "ÚLOŽIŠTĚ",
+    "belegt": "obsazeno",
+    "frei": "volné"
+  },
+  "explorer": {
+    "path": "CESTA",
+    "btn_view": "ZOBRAZENÍ",
+    "sort_title": "ŘAZENÍ",
+    "sort_name": "Název",
+    "sort_size": "Velikost",
+    "sort_date": "Datum",
+    "layout_title": "ROZLOŽENÍ",
+    "layout_std": "Standardní",
+    "layout_block": "Blok",
+    "system_title": "SYSTÉM",
+    "glitch_on": "Glitch: ZAP",
+    "glitch_off": "Glitch: VYP"
+  },
+  "chat": {
+    "header": "CHAT",
+    "placeholder": "Zpráva...",
+    "btn_send": "Odeslat"
+  },
+  "context": {
+    "rename": "Přejmenovat",
+    "delete": "Smazat",
+    "download": "Stáhnout",
+    "download_zip": "Stáhnout (ZIP)"
+  }
+}
