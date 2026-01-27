@@ -3,24 +3,31 @@ const fsSync = require('fs');
 const path = require('path');
 const session = require('express-session');
 
-const CONFIG_PATH = path.join(__dirname, '..', 'config.json');
+// Pfad zum User-Ordner
+const USER_DIR = path.join(__dirname, '..', 'user');
 
-async function getUsers() {
+// Sicherstellen, dass der Ordner existiert
+if (!fsSync.existsSync(USER_DIR)) {
+    fsSync.mkdirSync(USER_DIR, { recursive: true });
+}
+
+async function getUserConfig(username) {
     try {
-        if (!fsSync.existsSync(CONFIG_PATH)) return [];
-        const data = await fs.readFile(CONFIG_PATH, 'utf8');
+        const userPath = path.join(USER_DIR, `${username}.json`);
+        if (!fsSync.existsSync(userPath)) return null;
+        const data = await fs.readFile(userPath, 'utf8');
         return JSON.parse(data);
-    } catch (err) { return []; }
+    } catch (err) { return null; }
 }
 
 module.exports = (app) => {
     app.use(session({
-        secret: 'foxnas_cyber_secret_2025',
+        secret: 'foxnas_cyber_secret_2026', // Updated Year ;)
         resave: true,
         saveUninitialized: false,
         rolling: true,
         cookie: { 
-            maxAge: 60000, 
+            maxAge: 3600000, // 1 Stunde statt 1 Minute für bessere UX
             secure: false, 
             httpOnly: true,
             sameSite: 'lax'
@@ -38,12 +45,15 @@ module.exports = (app) => {
     app.post('/api/login', async (req, res) => {
         try {
             const { user, pass } = req.body;
-            const users = await getUsers();
-            const userConfig = users.find(u => u.user === user && u.pass === pass);
+            if (!user || !pass) return res.status(400).json({ success: false });
+
+            const userConfig = await getUserConfig(user);
             
-            if (userConfig) {
+            // Login Validierung gegen die individuelle JSON
+            if (userConfig && userConfig.pass === pass) {
                 const safeConfig = { ...userConfig };
-                delete safeConfig.pass;
+                delete safeConfig.pass; // Passwort niemals ans Frontend senden
+                
                 req.session.user = { config: safeConfig, quickpaths: [] };
                 
                 req.session.save((err) => {

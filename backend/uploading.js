@@ -1,46 +1,43 @@
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const ROOT_DRIVE = path.resolve(__dirname, '../..');
+const { sessionGuard, canWrite } = require('./authManager');
 
-function joinToRoot(relPath) {
-    const safePath = path.normalize(relPath || '').replace(/^(\.\.(\/|\\|$))+/, '');
-    const abs = path.join(ROOT_DRIVE, safePath);
-    if (!abs.startsWith(ROOT_DRIVE)) throw new Error('Pfad-Verletzung');
-    return abs;
-}
+// Zielt auf den Ordner ÜBER dem FoxNas-Verzeichnis (echtes Root der HDD)
+const ROOT_DRIVE = path.resolve(__dirname, '../..'); 
 
 module.exports = (app) => {
     const storage = multer.diskStorage({
         destination: (req, file, cb) => {
-            try {
-                const targetDir = joinToRoot(req.query.dir);
-                // Sicherstellen, dass der Ordner existiert
-                if (!fs.existsSync(targetDir)) {
-                    fs.mkdirSync(targetDir, { recursive: true });
-                }
-                cb(null, targetDir);
-            } catch (err) {
-                cb(err);
+            let relDir = req.query.dir || '';
+            // Säuberung: Verhindert, dass man mit ".." aus der Festplatte ausbricht
+            const safeRelDir = path.normalize(relDir).replace(/^(\.\.(\/|\\|$))+/, '');
+            const targetDir = path.join(ROOT_DRIVE, safeRelDir);
+            
+            console.log(`[FILE_SYSTEM] Ziel-Pfad: ${targetDir}`);
+
+            if (!fs.existsSync(targetDir)) {
+                fs.mkdirSync(targetDir, { recursive: true });
             }
+            cb(null, targetDir);
         },
         filename: (req, file, cb) => {
-            // Wir behalten den originalen Namen bei
             cb(null, file.originalname);
         }
     });
 
     const upload = multer({ 
         storage,
-        limits: { fileSize: 1024 * 1024 * 1024 * 5 } // Limit: 5GB (anpassbar)
+        limits: { fileSize: 1024 * 1024 * 1024 * 10 } // Erhöht auf 10GB für NAS-Zwecke
     });
 
-    // POST Route für Datei-Uploads
-    app.post('/api/upload', upload.single('file'), (req, res) => {
-        if (!req.file) {
-            return res.status(400).json({ error: 'Keine Datei empfangen' });
-        }
-        console.log(`uploading: [SYSTEM] Upload abgeschlossen: ${req.file.originalname} -> ${req.query.dir}`);
-        res.json({ ok: true, filename: req.file.originalname });
+    app.post('/api/upload', sessionGuard, canWrite, (req, res) => {
+        upload.single('file')(req, res, (err) => {
+            if (err) return res.status(500).json({ error: err.message });
+            if (!req.file) return res.status(400).json({ error: 'Feldname falsch oder keine Datei.' });
+
+            console.log(`uploading: [STORAGE] Datei abgelegt: ${req.file.originalname} in ${req.query.dir}`);
+            res.json({ success: true });
+        });
     });
 };

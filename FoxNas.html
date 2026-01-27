@@ -39,10 +39,20 @@
 <header id="mainHeader" style="display:none">
     <div style="color: var(--primary); font-weight: bold;">FOXNAS v1.0.3</div>
     <div style="text-align: center; letter-spacing: 3px;" id="clock">00:00:00</div>
-    <div style="text-align: right; font-size: 0.7rem; display: flex; align-items: center; justify-content: flex-end; gap: 15px;" id="headerProfileArea">
-        <span id="autoLogoutTimer" style="color: var(--accent); font-family: 'JetBrains Mono';">01:00</span>
-        <span id="pingVal">--</span>ms
+<div style="text-align: right; font-size: 0.7rem; display: flex; align-items: center; justify-content: flex-end; gap: 15px;" id="headerProfileArea">
+    <span id="autoLogoutTimer" style="color: var(--accent); font-family: 'JetBrains Mono';">01:00</span>
+    <span id="userNameDisplay" onclick="FoxLogger.toggleProfileModal()" style="color: var(--primary); cursor: pointer; border-bottom: 1px dashed var(--primary); font-weight: bold;">GUEST</span>
+    <span id="pingVal">--</span>ms
+</div>
+
+<div class="overlay" id="profileModal" style="display:none;" onclick="FoxLogger.toggleProfileModal()">
+    <div class="profile-card panel" onclick="event.stopPropagation()" style="min-width: 300px; padding: 20px;">
+        <div class="panel-header">Identität</div>
+        <div id="profileDetails" style="margin: 15px 0;">
+            </div>
+        <button class="cta" style="width:100%" onclick="FoxLogger.toggleProfileModal()">CLOSE</button>
     </div>
+</div>
 </header>
 
 <div class="tabs" id="mainTabs" style="display:none">
@@ -161,11 +171,29 @@
     <div onclick="ctxDownloadFolder()">Herunterladen (ZIP)</div>
 </div>
 
+<div id="uploadManager" class="panel shadow-lg" style="display:none; position: fixed; bottom: 20px; right: 20px; width: 300px; z-index: 10001; border: 1px solid var(--primary);">
+    <div class="panel-header" style="display: flex; justify-content: space-between;">
+        <span>FILE_TRANSFER</span>
+        <span id="uploadCount">0/1</span>
+    </div>
+    <div class="panel-body" style="padding: 15px;">
+        <div id="uploadFileName" style="font-size: 0.7rem; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Datei.dat</div>
+        <div class="bar-bg" style="height: 12px; margin-bottom: 5px;">
+            <div id="uploadBar" class="bar-fill" style="width: 0%"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.6rem; font-family: 'JetBrains Mono';">
+            <span id="uploadPercent">0%</span>
+            <span id="uploadSpeed">-- KB/s</span>
+        </div>
+    </div>
+</div>
+
 <div id="selectionBox"></div>
 
 <script src="frontend/globals.js"></script>
 <script src="frontend/icons.js"></script>
 <script src="frontend/auth.js"></script>
+<script src="frontend/consolelog.js"></script>
 <script src="frontend/language.js"></script>
 <script src="frontend/explorer.js"></script>
 <script src="frontend/system.js"></script>

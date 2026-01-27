@@ -56,11 +56,17 @@ function setupUserInterface(data) {
                 <span id="autoLogoutTimer" style="color: white; font-family: 'JetBrains Mono'; font-size: 0.8rem;">01:00</span>
                 <span style="font-size: 0.5rem; color: rgba(255,255,255,0.4); letter-spacing: 1px;">DOUBLE [ESC] TO TERMINATE</span>
             </div>
-            <span style="color:var(--primary);margin-right:15px;font-family:'Orbitron'">[ ${window.permissions.name} ]</span> 
+            <span id="userNameDisplay" 
+                  onclick="FoxLogger.toggleProfileModal()" 
+                  style="color:var(--primary); margin-right:15px; font-family:'Orbitron'; cursor: pointer; border-bottom: 1px dashed transparent;"
+                  onmouseover="this.style.borderBottomColor='var(--primary)'"
+                  onmouseout="this.style.borderBottomColor='transparent'">
+                [ ${window.permissions.name} ]
+            </span> 
             <div style="font-size: 0.7rem;"><span id="pingVal">--</span>ms</div>`;
     }
 
-    // Modal Profildaten setzen
+    // Modal Profildaten setzen (für das Overlay)
     const profName = document.getElementById('profileDisplayName');
     const profID = document.getElementById('profileFullID');
     const profImg = document.getElementById('profileImg');
@@ -69,20 +75,15 @@ function setupUserInterface(data) {
     if(profImg) profImg.src = `/user/${window.currentUser}.png`;
 
     // --- INITIALISIERUNG ALLER MODULE ---
-    
-    // 1. Explorer & Daten
     if (typeof refresh === 'function') refresh(""); 
     if (typeof renderQuickPaths === 'function') renderQuickPaths(data.quickpaths);
-    
-    // 2. Interaktion & Anzeige (HIER steckt die Bild-Vorschau drin)
     if (typeof initViewing === 'function') initViewing(); 
-    
-    // 3. System-Dienste (CPU/RAM/Logs)
     if (typeof initSystem === 'function') initSystem();
-    
-    // 4. Steuerung (Tastatur & Kontextmenü)
     if (typeof initKeybinds === 'function') initKeybinds();
     if (typeof initContextMenu === 'function') initContextMenu();
+    
+    // Consolelog / Profile Manager initialisieren
+    if (typeof FoxLogger !== 'undefined') FoxLogger.init();
     
     initLogoutKeyEvents();
     startInactivityTimer();

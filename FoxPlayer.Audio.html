@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>FoxPlayer</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.FoxPlayer.Audio.css">
+</head>
+<body>
+    <div class="audio-container">
+        <div class="sidebar">
+            <div id="coverArt" class="cover-art"></div>
+            <div class="stats-grid" id="statsArea">
+                <div class="stats-item">FREQ: <span id="s_freq">--</span></div>
+                <div class="stats-item">RATE: <span id="s_rate">--</span></div>
+                <div class="stats-item">MODE: <span id="s_mode">--</span></div>
+                <div class="stats-item">SIZE: <span id="s_size">--</span></div>
+            </div>
+        </div>
+        <div class="main-audio">
+            <h1 id="trackTitle">LOADING...</h1>
+            <p id="trackArtist" style="color:#666">PLEASE WAIT</p>
+            
+            <div class="visualizer-container">
+                <canvas id="canvas"></canvas>
+                <div class="progress-wrap" id="progWrap"><div class="progress-fill" id="progFill"></div></div>
+            </div>
+            <div id="timeDisplay" class="timer">00:00 / 00:00</div>
+
+            <div class="eq-container">
+                <div class="eq-band"><input type="range" class="eq-slider" data-index="0" min="-12" max="12" step="1" value="0" oninput="updateEQ(0, this.value)"><span class="eq-label">60Hz</span></div>
+                <div class="eq-band"><input type="range" class="eq-slider" data-index="1" min="-12" max="12" step="1" value="0" oninput="updateEQ(1, this.value)"><span class="eq-label">300Hz</span></div>
+                <div class="eq-band"><input type="range" class="eq-slider" data-index="2" min="-12" max="12" step="1" value="0" oninput="updateEQ(2, this.value)"><span class="eq-label">1kHz</span></div>
+                <div class="eq-band"><input type="range" class="eq-slider" data-index="3" min="-12" max="12" step="1" value="0" oninput="updateEQ(3, this.value)"><span class="eq-label">4kHz</span></div>
+                <div class="eq-band"><input type="range" class="eq-slider" data-index="4" min="-12" max="12" step="1" value="0" oninput="updateEQ(4, this.value)"><span class="eq-label">16kHz</span></div>
+                <button class="btn-save-eq" onclick="savePlayerConfig()">SAVE PRESET</button>
+            </div>
+        </div>
+    </div>
+    <audio id="audioElement" crossorigin="anonymous"></audio>
+
+<script src="frontend/audio.js"></script>
+<script src="frontend/keybinds.FoxPlayer.js"></script>
+
+</body>
+</html>

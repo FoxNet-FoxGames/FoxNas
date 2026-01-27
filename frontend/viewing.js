@@ -1,8 +1,5 @@
 /**
- * FOXNAS Viewing & Streaming Module
- * @param {string} name - Dateiname
- * @param {boolean} isSelectionOnly - Nur für Sidebar (hier ignoriert)
- * @param {boolean} isEditMode - Wenn true (Alt+Enter), wird der Editor erzwungen
+ * FOXNAS Viewing & Streaming Module - FIXED
  */
 async function handlePreview(name, isSelectionOnly = false, isEditMode = false) {
     if (isSelectionOnly) return;
@@ -17,30 +14,34 @@ async function handlePreview(name, isSelectionOnly = false, isEditMode = false) 
         return;
     }
 
-    // 2. Medien (Video & Audio)
-    if (['mp4', 'webm', 'mkv', 'mp3', 'wav', 'ogg'].includes(ext)) {
-        window.open(`FoxPlayer.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
+    // 2. Video Player
+    if (['mp4', 'webm', 'mkv'].includes(ext)) {
+        window.open(`FoxPlayer.Video.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
         return;
     }
 
-    // 3. HTML Spezial-Logik
+    // 3. Audio Player
+    if (['mp3', 'wav', 'ogg', 'flac', 'm4a'].includes(ext)) {
+        window.open(`FoxPlayer.Audio.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
+        return;
+    }
+
+    // 4. HTML Spezial-Logik
     if (ext === 'html') {
         if (isEditMode) {
-            // Mit Alt+Enter: Editor
             window.open(`FoxIDE.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
         } else {
-            // Nur Enter: Normales Streaming/Anzeigen
             window.open(streamUrl, '_blank');
         }
         return;
     }
 
-    // 4. Andere Text- & Code-Dateien (immer Editor)
-    if (['txt', 'js', 'css', 'json', 'log', 'md', 'py', 'php'].includes(ext)) {
+    // 5. Code & Text
+    if (['txt', 'js', 'css', 'json', 'log', 'md', 'py', 'php', 'bat'].includes(ext)) {
         window.open(`FoxIDE.html?path=${encodeURIComponent(fullFilePath)}`, '_blank');
         return;
     }
 
-    // Fallback
+    // Fallback: Direkter Stream / Download
     window.open(streamUrl, '_blank');
 }

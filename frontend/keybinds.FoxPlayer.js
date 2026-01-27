@@ -1,80 +1,58 @@
 /**
- * FOXNAS Video-Streaming Keybinds (Custom Player)
+ * FOXNAS Global Media Keybinds (Video & Audio)
  */
-let lastEscTime = 0;
-
 window.addEventListener('keydown', (e) => {
-    const video = document.getElementById('mainVideo');
-    const wrapper = document.getElementById('playerWrapper');
-    if (!video) return;
-
-    // Dynamische Keys aus den Settings holen
-    const customFwd = document.getElementById('kb_fwd').value;
-    const customBwd = document.getElementById('kb_bwd').value;
+    // Erkennt automatisch ob Video oder Audio Element vorhanden ist
+    const media = document.getElementById('mainVideo') || document.getElementById('audioElement');
+    if (!media) return;
 
     const key = e.key.toLowerCase();
-
-    // --- DOWNLOAD STREAM (STRG + S) ---
-    if ((e.ctrlKey || e.metaKey) && key === 's') {
+    
+    // Default-Aktionen verhindern (z.B. Leertaste scrollt)
+    if (key === ' ' || key === 'arrowup' || key === 'arrowdown') {
         e.preventDefault();
-        const params = new URLSearchParams(window.location.search);
-        const videoPath = params.get('path');
-        if (videoPath) {
-            const downloadUrl = `/api/download?path=${encodeURIComponent(videoPath)}`;
-            window.location.assign(downloadUrl);
-        }
-        return;
     }
 
-    // --- FULLSCREEN & EXIT (ESC LOGIK) ---
-    if (e.key === 'Escape') {
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        } else {
-            const now = Date.now();
-            if (now - lastEscTime < 500) {
-                window.close(); 
+    switch(key) {
+        case ' ':
+        case 'k':
+            media.paused ? media.play() : media.pause();
+            break;
+        case 'f':
+            // Fullscreen nur beim Video-Player sinnvoll oder Visualizer Wrapper
+            const wrapper = document.getElementById('playerWrapper') || document.querySelector('.audio-container');
+            if (wrapper) {
+                if (!document.fullscreenElement) {
+                    wrapper.requestFullscreen().catch(err => console.log(err));
+                } else {
+                    document.exitFullscreen();
+                }
             }
-            lastEscTime = now;
-        }
-        return;
-    }
-
-    // --- FULLSCREEN TOGGLE (F) ---
-    if (key === 'f') {
-        e.preventDefault();
-        if (!document.fullscreenElement) {
-            wrapper.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-    }
-
-    // --- MUTE (M) ---
-    if (key === 'm') {
-        e.preventDefault();
-        video.muted = !video.muted;
-    }
-
-    // --- NAVIGATION (Inkl. dynamischer Keybinds) ---
-    if (e.key === customFwd || e.key === 'ArrowRight') { e.preventDefault(); video.currentTime += 3; }
-    if (e.key === customBwd || e.key === 'ArrowLeft')  { e.preventDefault(); video.currentTime -= 3; }
-    if (key === 'l') { video.currentTime += 10; }
-    if (key === 'j') { video.currentTime -= 10; }
-
-    // --- PLAY / PAUSE ---
-    if (e.key === ' ' || key === 'k') {
-        e.preventDefault();
-        video.paused ? video.play() : video.pause();
-    }
-
-    // --- FRAME BY FRAME (Punkt & Komma) ---
-    if (e.key === '.') { 
-        video.pause();
-        video.currentTime += 1 / 30; 
-    }
-    if (e.key === ',') { 
-        video.pause();
-        video.currentTime -= 1 / 30;
+            break;
+        case 'm':
+            media.muted = !media.muted;
+            break;
+        case 'arrowright':
+        case 'l':
+            media.currentTime += (key === 'l' ? 10 : 3);
+            break;
+        case 'arrowleft':
+        case 'j':
+            media.currentTime -= (key === 'j' ? 10 : 3);
+            break;
+        case '.': // Frame vorwärts (nur Video sinnvoll, aber schadet Audio nicht)
+            media.currentTime += 1/30;
+            break;
+        case ',': // Frame rückwärts
+            media.currentTime -= 1/30;
+            break;
+        case 'escape':
+            // Fenster schließen bei Doppel-Esc
+            const now = Date.now();
+            if (window.lastEsc && (now - window.lastEsc < 500)) {
+                window.close();
+            }
+            window.lastEsc = now;
+            break;
     }
 });
