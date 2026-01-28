@@ -1,4 +1,4 @@
-# 🦊 FoxNas v1.0 – Personal Cloud Storage
+# 🦊 FoxNas – Personal Cloud Storage
 
 **FoxNas** ist ein leichtgewichtiges, webbasiertes NAS-System (Network Attached Storage) von **FoxNet**. Es kombiniert High-End-Design mit Funktionalität für **Streaming** und **Entwicklung**.
 
@@ -68,9 +68,6 @@ Passwort: fox
 * **3.02** – Multi-Storage Support:
   Kommunikation zwischen Hauptserver und externen Gehäusen für die Auswahl mehrerer Festplatten.
 
-* **3.07** – Uploading:
-  Das man auch sieht was gerade hochläd, wielange noch und wanns fertig ist.
-
 * **3.12** – Sounds:
   Copy, Paste und allgemein Dateimanagment sollten ein Sound haben das sie erflogreich waren.
 
@@ -83,13 +80,6 @@ Passwort: fox
   * Wählbarer Hintergrund & Schnellzugriffe
   * Startmenü mit Power-Features & Abmeldung
   * Globale Suche und verschiebbare Fenster (Explorer-Fenster)
-
-* **3.11** – Deep Permissions:
-  Granulare Rechte (Lesen/Schreiben/Ändern). Umstellung auf user-basierte `config.json` unter:
-
-  ```text
-  /users/%username%
-  ```
 
 * **3.12** – Background Music:
   Globaler Audio-Player im Footer. Automatischer Pause-Modus bei Video-Start.

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="fox_psd" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff"/>
+      <stop offset="100%" stop-color="#ff00ff"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="8" width="40" height="48" rx="3" fill="#0a0a0a" stroke="url(#fox_psd)" stroke-width="2"/>
+  
+  <g stroke="url(#fox_psd)" stroke-width="2" fill="none">
+    <path d="M22,24 L42,24 L42,34 L22,34 Z" opacity="0.4"/>
+    <path d="M18,30 L38,30 L38,40 L18,40 Z" opacity="0.7"/>
+    <path d="M22,36 L42,36 L42,46 L22,46 Z"/>
+  </g>
+
+  <rect x="16" y="12" width="4" height="4" fill="url(#fox_psd)" opacity="0.4"/>
+  <rect x="44" y="12" width="4" height="4" fill="url(#fox_psd)" opacity="0.4"/>
+</svg>

@@ -15,34 +15,38 @@ body.no-glitch::before {display: none !important}
 input {background: rgba(0,0,0,0.5);border: 1px solid #1a2228; color:var(--primary); padding: 12px; margin: 8px 0; width: 100%;box-sizing: border-box; font-family: 'JetBrains Mono'; outline: none}
 button.cta {background:var(--primary); color:#000;border: none; padding: 12px; width: 100%; cursor: pointer; font-weight: bold; text-transform: uppercase; font-family: 'Orbitron'; margin-top: 10px}
 header {background: rgba(0, 10, 15, 0.95); padding: 10px 25px; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center;border-bottom: 1px solid var(--primary); font-family: 'Orbitron'; font-size: 0.8rem}
-.profile-label { color: var(--primary); opacity: 0.6; }
-.profile-val { color: var(--primary); font-weight: bold; }
-.profile-label { color: var(--primary); opacity: 0.7; }
-.profile-val { color: var(--primary); font-weight: bold; }
-.profile-val.blocked { color: var(--accent); }
-.tabs { display: flex;background:#070c0f; padding: 0 20px;border-bottom: 1px solid #1a2228}
+.profile-label {color: var(--primary); opacity: 0.6;}
+.profile-val {color: var(--primary); font-weight: bold}
+.profile-label {color: var(--primary); opacity: 0.7}
+.profile-val {color: var(--primary); font-weight: bold}
+.profile-val.blocked {color: var(--accent)}
+.tabs {display: flex;background:#070c0f; padding: 0 20px;border-bottom: 1px solid #1a2228}
 .tabs button {background: transparent;border: none; color:#556; padding: 15px 25px; cursor: pointer; font-family: 'Orbitron'; font-size: 0.7rem;border-bottom: 2px solid transparent}
-.tabs button.active { color:var(--primary);border-bottom: 2px solid var(--primary)}
-.container { display: grid; grid-template-columns: 1fr 320px; height: calc(100vh - 100px); padding: 20px; gap: 20px;box-sizing: border-box}
+.tabs button.active {color:var(--primary);border-bottom: 2px solid var(--primary)}
+.container {display: grid; grid-template-columns: 1fr 320px; height: calc(100vh - 100px); padding: 20px; gap: 20px;box-sizing: border-box}
 .panel {background:var(--panel-bg);border:var(--border); padding: 20px; position: relative;backdrop-filter: blur(10px); margin-bottom: 20px}
-.panel-header { font-family: 'Orbitron'; color:var(--primary); font-size: 0.75rem; margin-bottom: 15px;border-bottom: 1px solid rgba(0, 242, 255, 0.1); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center}
-.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px}
-.stat-label { font-size: 0.6rem; color:#556; display: block; margin-bottom: 4px}
-.stat-value { font-size: 0.9rem; color:var(--primary)}
-.bar-bg { width: 100%; height: 4px;background:#111; margin-top: 5px; position: relative; overflow: hidden}
-.bar-fill { height: 100%;background:var(--primary); transition: width 0.5s ease;box-shadow: 0 0 8px var(--primary)}
-.file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px}
+.panel-header {font-family: 'Orbitron'; color:var(--primary); font-size: 0.75rem; margin-bottom: 15px;border-bottom: 1px solid rgba(0, 242, 255, 0.1); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center}
+.stat-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px}
+.stat-label {font-size: 0.6rem; color:#556; display: block; margin-bottom: 4px}
+.stat-value {font-size: 0.9rem; color:var(--primary)}
+.bar-bg {width: 100%; height: 4px;background:#111; margin-top: 5px; position: relative; overflow: hidden}
+.bar-fill {height: 100%;background:var(--primary); transition: width 0.5s ease;box-shadow: 0 0 8px var(--primary)}
+.file-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px}
 .item {background: rgba(255,255,255,0.02);border: 1px solid rgba(255,255,255,0.05); padding: 15px; text-align: center; cursor: pointer}
 .item:hover {background: rgba(0, 242, 255, 0.08);border-color:var(--primary)}
-.item i { color:var(--primary); margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto}
-.item .file-name { font-size: 0.65rem; color:#ccc; word-break: break-all}
+.item:hover img {filter: drop-shadow(0 0 8px var(--primary));transform: scale(1.1);transition: all 0.2s ease-in-out}
+.item i {color:var(--primary); margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto}
+.item .file-name {font-size: 0.65rem; color:#ccc; word-break: break-all}
 .upload-item {background: rgba(0, 242, 255, 0.03);border: 1px solid rgba(0, 242, 255, 0.1);padding: 8px;font-family: 'JetBrains Mono', monospace}
 .upload-info {display: flex;justify-content: space-between;font-size: 0.7rem;margin-bottom: 5px}
-.upload-filename { color: var(--primary); font-weight: bold; }
-.upload-timer { color: var(--accent); }
+.upload-filename {color: var(--primary); font-weight: bold; }
+.upload-timer {color: var(--accent); }
 .progress-container {width: 100%;height: 4px;background: rgba(255, 255, 255, 0.05);overflow: hidden;position: relative}
-.progress-bar {height: 100%;background: var(--primary);box-shadow: 0 0 10px var(--primary);width: 0%;transition: width 0.3s ease}
-#logConsole { height: 250px;background: rgba(0,0,0,0.4);border: 1px solid #1a2228; padding: 10px; font-size: 0.65rem; color:#667; overflow-y: auto}
+.progress-bar {height:100%;background: var(--primary);box-shadow: 0 0 10px var(--primary);width: 0%;transition: width 0.3s ease}
+#logConsole {height: 250px;background: rgba(0,0,0,0.4);border: 1px solid #1a2228; padding: 10px; font-size: 0.65rem; color:#667; overflow-y: auto}
+#logConsole::-webkit-scrollbar {width: 4px; }
+#logConsole::-webkit-scrollbar-track {background: rgba(0, 0, 0, 0.2); }
+#logConsole::-webkit-scrollbar-thumb {background: var(--primary);box-shadow: 0 0 10px var(--primary)}
 .btn-action {background: transparent;border: 1px solid var(--primary); color:var(--primary); padding: 5px 12px; font-size: 0.65rem; cursor: pointer; font-family: 'Orbitron'}
 .btn-action:hover:not(:disabled) {background:var(--primary); color:#000}
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%;background: rgba(0, 0, 0, 0);backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 10001}

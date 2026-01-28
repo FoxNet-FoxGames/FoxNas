@@ -25,7 +25,11 @@ const mimeMap = {
     '.mp4': 'video/mp4', '.mkv': 'video/x-matroska', '.webm': 'video/webm',
     '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.png': 'image/png',
     '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.html': 'text/html',
-    '.txt': 'text/plain', '.js': 'application/javascript', '.bat': 'text/plain'
+    '.txt': 'text/plain', '.js': 'application/javascript', '.bat': 'text/plain',
+    '.svg': 'image/svg+xml',
+    '.ico': 'image/x-icon',
+    '.gif': 'image/gif',
+    '.webp': 'image/webp'
 };
 
         const contentType = mimeMap[ext] || 'application/octet-stream';

@@ -3,12 +3,13 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const http = require('http'); // Notwendig für Socket.io
-const { Server } = require('socket.io'); // Notwendig für Socket.io
+const http = require('http');
+const { Server } = require('socket.io');
+const session = require('express-session');
 
 const app = express();
-const server = http.createServer(app); // Server Instanz
-const io = new Server(server, { cors: { origin: '*' } }); // Socket.io Instanz
+const server = http.createServer(app);
+const io = new Server(server, { cors: { origin: '*' } });
 const PORT = 80;
 
 app.use(cors());
@@ -71,7 +72,7 @@ function getLocalIPs() {
 }
 
 server.listen(PORT, '0.0.0.0', () => {
-    console.log(`\x1b[36mFOXNAS v1.0.3 ONLINE\x1b[0m`);
+    console.log(`\x1b[36mFOXNAS v1.1.2 ONLINE\x1b[0m`);
     const ips = getLocalIPs();
     if (ips.length === 0) {
         console.log('Keine lokale Netzwerkadresse gefunden.');

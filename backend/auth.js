@@ -22,7 +22,7 @@ async function getUserConfig(username) {
 
 module.exports = (app) => {
     app.use(session({
-        secret: 'foxnas_cyber_secret_2026', // Updated Year ;)
+        secret: 'foxnas_cyber_secret_2026',
         resave: true,
         saveUninitialized: false,
         rolling: true,
