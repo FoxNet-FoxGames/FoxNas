@@ -1,5 +1,6 @@
 {
   "user": "admin",
+  "role": "Admin",
   "name": "Admin",
   "pass": "fox",
   "admin": true,

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ICON_DIR = path.resolve(__dirname, '../icons');
+const ICON_DIR = path.resolve(__dirname, '../icons/files');
 const loggedMessages = new Set();
 
 module.exports = (app) => {

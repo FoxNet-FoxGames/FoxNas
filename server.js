@@ -14,6 +14,7 @@ const PORT = 80;
 
 app.use(cors());
 app.use(express.json());
+app.use('/sounds', express.static(path.join(__dirname, 'sounds')));
 
 app.get('/api/ping', (req, res) => {
     res.status(200).send('pong');
@@ -72,7 +73,7 @@ function getLocalIPs() {
 }
 
 server.listen(PORT, '0.0.0.0', () => {
-    console.log(`\x1b[36mFOXNAS v1.1.2 ONLINE\x1b[0m`);
+    console.log(`\x1b[36mFOXNAS v1.1.3 ONLINE\x1b[0m`);
     const ips = getLocalIPs();
     if (ips.length === 0) {
         console.log('Keine lokale Netzwerkadresse gefunden.');

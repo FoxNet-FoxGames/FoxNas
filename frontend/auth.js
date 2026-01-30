@@ -17,17 +17,26 @@ async function handleLogin() {
     const userEl = document.getElementById('user');
     const passEl = document.getElementById('pass');
     const errEl = document.getElementById('loginErr');
-    if(!userEl || !passEl) return;
+    
     try {
         const res = await fetch('/api/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ user: userEl.value, pass: passEl.value })
         });
+        
         const data = await res.json();
-        if(data.success) setupUserInterface(data);
-        else if(errEl) errEl.style.display = 'block';
-    } catch (e) { console.error("Login Error:", e); }
+        
+        if(data.success) {
+            if(typeof FoxSounds !== 'undefined') FoxSounds.play('LoginSuccess');
+            setupUserInterface(data);
+        } else {
+            if(typeof FoxSounds !== 'undefined') FoxSounds.play('LoginFailure');
+            if(errEl) errEl.style.display = 'block';
+        }
+    } catch (e) { 
+        console.error("Login Error:", e); 
+    }
 }
 
 async function checkExistingAuth() {

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <path d="M12,20 V44 L32,56 L52,44 V20 L32,8 Z" fill="#0a0a0a" stroke="#00ffff" stroke-width="2" stroke-linejoin="round"/>
+  
+  <path d="M22,25 L32,18 L42,25 V39 L32,46 L22,39 Z" fill="none" stroke="#ff00ff" stroke-width="3" stroke-linejoin="round">
+    <animate attributeName="stroke-width" values="3;1.5;3" dur="2s" repeatCount="indefinite" />
+  </path>
+
+  <path d="M32,8 V18 M12,20 L22,25 M52,20 L42,25 M12,44 L22,39 M52,44 L42,39 M32,56 V46" stroke="#00ffff" stroke-width="1.5" stroke-opacity="0.6"/>
+</svg>

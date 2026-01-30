@@ -1,4 +1,4 @@
-:root { --primary: #00f2ff; --bg: #050505; }
+:root { --primary: #00ffff; --bg: #050505; }
 body { background: var(--bg); color: #fff; font-family: 'JetBrains Mono'; margin: 0; overflow: hidden; }
 .audio-container { display: grid; grid-template-columns: 300px 1fr; height: 100vh; padding: 20px; box-sizing: border-box; gap: 20px; }
 .cover-art { width: 300px; height: 300px; border: 1px solid #333; background: #111; background-size: cover; background-position: center; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
