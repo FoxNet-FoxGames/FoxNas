@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 5 3">
+  <path d="M0,0 L5,0 L2.5,1.5 Z M0,3 L5,3 L2.5,1.5 Z" fill="#009c3b"/>
+  <circle cx="2.5" cy="1.5" r="0.85" fill="#ffdf00"/>
+  <!-- Band: "Ordem e Progresso" -->
+  <rect x="1.6" y="1.35" width="1.8" height="0.25" rx="0.1" ry="0.1" transform="rotate(-15 2.5 1.475)" fill="#002776"/>
+</svg>

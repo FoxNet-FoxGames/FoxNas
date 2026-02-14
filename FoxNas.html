@@ -12,39 +12,45 @@
 <body>
 
 <div id="loginScreen">
-<div class="login-box">
-    <div class="language-wrapper">
-        <button class="btn-language" onclick="toggleLangMenu()">⚙</button>
-        <div id="langSelectorContainer" class="lang-selector-popup" style="display: none;">
-            <select id="langPicker" onchange="LanguageEngine.setLanguage(this.value)" size="8">
-                <option value="de_de">DE - Deutsch</option>
-                <option value="de_xd">DE - XD FUN</option>
-                <option value="en_us">EN - English</option>
-                <option value="fr_fr">FR - Français</option>
-                <option value="es_es">ES - Español</option>
-                <option value="it_it">IT - Italiano</option>
-                <option value="nl_nl">NL - Nederlands</option>
-                <option value="pl_pl">PL - Polski</option>
-                <option value="tr_tr">TR - Türkçe</option>
-                <option value="pt_br">PT - Português (Brasil)</option>
-                <option value="cs_cz">CS - Čeština</option>
-                <option value="ru_ru">RU - Русский</option>
-                <option value="ko_kr">KO - 한국어</option>
-                <option value="ja_jp">JA - 日本語</option>
-                <option value="zh_cn">ZH - 中文（简体）</option>
-            </select>
+    <div class="login-box">
+        <div class="language-wrapper">
+            <button class="btn-language" onclick="toggleLangMenu()">⚙</button>
+            
+            <div id="langSelectorContainer" class="lang-selector-popup" style="display: none;">
+                <div class="custom-lang-list">
+                    <div class="lang-option" data-value="de_de" onclick="selectLanguage(this)"><img src="icons/flags/de.svg"> - Deutsch</div>
+                    <div class="lang-option" data-value="de_xd" onclick="selectLanguage(this)"><img src="icons/flags/de.svg"> - XD FUN</div>
+                    <div class="lang-option" data-value="en_us" onclick="selectLanguage(this)"><img src="icons/flags/uk.svg"> - English</div>
+                    <div class="lang-option" data-value="fr_fr" onclick="selectLanguage(this)"><img src="icons/flags/fr.svg"> - Français</div>
+                    <div class="lang-option" data-value="es_es" onclick="selectLanguage(this)"><img src="icons/flags/es.svg"> - Español</div>
+                    <div class="lang-option" data-value="it_it" onclick="selectLanguage(this)"><img src="icons/flags/it.svg"> - Italiano</div>
+                    <div class="lang-option" data-value="nl_nl" onclick="selectLanguage(this)"><img src="icons/flags/nl.svg"> - Nederlands</div>
+                    <div class="lang-option" data-value="pl_pl" onclick="selectLanguage(this)"><img src="icons/flags/pl.svg"> - Polski</div>
+                    <div class="lang-option" data-value="tr_tr" onclick="selectLanguage(this)"><img src="icons/flags/tr.svg"> - Türkçe</div>
+                    <div class="lang-option" data-value="pt_br" onclick="selectLanguage(this)"><img src="icons/flags/br.svg"> - Português (Brasil)</div>
+                    <div class="lang-option" data-value="cs_cz" onclick="selectLanguage(this)"><img src="icons/flags/cz.svg"> - Čeština</div>
+                    <div class="lang-option" data-value="ru_ru" onclick="selectLanguage(this)"><img src="icons/flags/ru.svg"> - Русский</div>
+                    <div class="lang-option" data-value="ko_kr" onclick="selectLanguage(this)"><img src="icons/flags/kr.svg"> - 한국어</div>
+                    <div class="lang-option" data-value="ja_jp" onclick="selectLanguage(this)"><img src="icons/flags/jp.svg"> - 日本語</div>
+                    <div class="lang-option" data-value="zh_cn" onclick="selectLanguage(this)"><img src="icons/flags/cn.svg"> - 中文（简体）</div>
+                </div>
+            </div>
         </div>
-    </div>
+
         <h2>FoxNas Zugang</h2>
-        <input type="text" id="user" placeholder="USERNAME">
-        <input type="password" id="pass" placeholder="PASSWORT">
+        
+        <div class="form-group">
+            <input type="text" id="user" placeholder="USERNAME" aria-label="Benutzername">
+            <input type="password" id="pass" placeholder="PASSWORT" aria-label="Passwort" onkeydown="if(event.key === 'Enter') handleLogin()">
+        </div>
+        
         <button class="cta" onclick="handleLogin()">Autorisieren</button>
         <p id="loginErr" style="color: var(--accent); font-size: 0.7rem; margin-top: 15px; display: none;">Nicht Gültig!</p>
     </div>
 </div>
 
 <header id="mainHeader" style="display:none">
-    <div style="color: var(--primary); font-weight: bold;">FOXNAS v1.1.3</div>
+    <div style="color: var(--primary); font-weight: bold;">FOXNAS v1.1.4</div>
     <div style="text-align: center; letter-spacing: 3px;" id="clock">00:00:00</div>
 <div style="text-align: right; font-size: 0.7rem; display: flex; align-items: center; justify-content: flex-end; gap: 15px;" id="headerProfileArea">
     <span id="autoLogoutTimer" style="color: var(--accent); font-family: 'JetBrains Mono';">01:00</span>

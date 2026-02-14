@@ -5,9 +5,15 @@ body.no-glitch::before {display: none !important}
 #loginScreen {position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle,#0a1116 0%,#05080a 100%);z-index:10000;display:flex;justify-content:center;align-items:center;flex-direction:column}
 .login-box {border: 1px solid var(--primary); padding: 40px;background: rgba(0,0,0,0.8);box-shadow:var(--glow); text-align: center; width: 320px}
 .login-box h2 {font-family: 'Orbitron'; color:var(--primary); font-size: 1rem; margin-bottom: 20px}
+.lang-selector-popup {background: rgba(0, 0, 0, 0.95);border: 1px solid var(--primary);box-shadow: var(--glow);z-index: 10001;width: 100%;animation: fadeIn 0.2s ease-out}
+.custom-lang-list {max-height: 200px;overflow-y: auto;text-align: left}
+.lang-option {padding: 12px;cursor: pointer;display: flex;align-items: center;color: var(--primary);font-family: 'JetBrains Mono', monospace;font-size: 0.7rem;transition: background 0.2s;border-bottom: 1px solid rgba(255,255,255,0.05)}
+.lang-option:hover {background: var(--primary);color: #000}
+.lang-option img {width: 16px;height: auto;margin-right: 10px;filter: drop-shadow(0 0 2px rgba(0,0,0,0.5))}
+.custom-lang-list::-webkit-scrollbar { width: 4px; }
+.custom-lang-list::-webkit-scrollbar-thumb { background: var(--primary); }
 .btn-language {background: transparent;border: none;color: var(--primary);font-size: 1.2rem;cursor: pointer;transition: transform 0.3s ease}
 .btn-language:hover {transform: rotate(90deg);text-shadow: 0 0 10px var(--primary)}
-.lang-selector-popup {background: var(--bg-dark);border: 1px solid var(--primary);box-shadow: var(--glow);padding: 5px;animation: fadeIn 0.2s ease-out}
 #langPicker {background: transparent;border: none;color: var(--primary);font-family: 'JetBrains Mono', monospace;font-size: 0.7rem;outline: none;cursor: pointer;width: 140px}
 #langPicker option {background: var(--bg-dark);padding: 5px}
 #langPicker option:hover {background: var(--primary);color: #000}

@@ -45,7 +45,7 @@ Passwort: fox
 
 ## 🗺 Roadmap
 
-### 📽 1. VideoStream Evolution
+### 📽 1. FoxPlayer
 
 * **1.01** – Interaktive Zeitleiste:
   (Click-to-Seek) mit Thumbnail-Vorschau und Zeitanzeige beim Hovern.
@@ -54,7 +54,7 @@ Passwort: fox
 
 ---
 
-### ✍️ 2. Editor Upgrades
+### ✍️ 2. FoxIDE
 
 * **2.01** – Noch keine weiteren Pläne.
 
@@ -68,26 +68,29 @@ Passwort: fox
 * **3.02** – Multi-Storage Support:
   Kommunikation zwischen Hauptserver und externen Gehäusen für die Auswahl mehrerer Festplatten.
 
-* **3.12** – Sounds:
+* **3.03** – Sounds:
   Copy, Paste und allgemein Dateimanagment sollten ein Sound haben das sie erflogreich waren.
 
-* **3.08** – Admin-Konsole:
+* **3.04** – Custom Styles:
+  Custom/Andere Styles.
+
+* **3.05** – Admin-Konsole:
   Live-Output von Datei-Aktionen (Upload/Download/IPs) und Chat-Integration in der Serverkonsole.
 
-* **3.09** – Virtual Desktop:
+* **3.06** – Virtual Desktop:
   Ein komplettes virtuelles OS im FoxNas-Design.
 
   * Wählbarer Hintergrund & Schnellzugriffe
   * Startmenü mit Power-Features & Abmeldung
   * Globale Suche und verschiebbare Fenster (Explorer-Fenster)
 
-* **3.12** – Background Music:
+* **3.07** – Background Music:
   Globaler Audio-Player im Footer. Automatischer Pause-Modus bei Video-Start.
 
-* **3.13** – UI-Glitch-Personalisierung:
+* **3.08** – UI-Glitch-Personalisierung:
   Ein-/Ausschaltbar pro User.
 
-* **3.14** – Permissions:
+* **3.09** – Permissions:
   Die Permissions funktionabel machen.
 
 ---
